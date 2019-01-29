@@ -1,0 +1,14 @@
+{
+  "name": "cheaty",
+  "version": "1.0.0",
+  "description": "PDF Cheat Sheet generation made easy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.11.0"
+  }
+}
