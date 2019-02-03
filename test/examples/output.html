@@ -1,0 +1,71 @@
+<!doctype html>
+  <html>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  <head>
+		<style>
+body {
+	background-color: #FFFFFF;
+}
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.col {
+	display: flex;
+}
+.sheetTitle {
+}
+.sheetAuthor {
+	font-style: italic;
+	color: gray;
+}
+.blocks {
+	column-count: 2;
+	height: 100vh;
+	column-gap: 0;
+}
+.block {
+	break-inside: avoid;
+	page-break-inside: avoid;
+	-webkit-column-break-inside: avoid;
+}
+.blockInside {
+	border: 1px solid gray;
+	box-shadow: black 2px 2px;
+	padding: 4px;
+	margin-bottom: 8px;
+	margin-right: 4px;
+	margin-left: 4px;
+}
+.blockTitle {
+	padding: 0;
+	margin: 0;
+}
+.blockContent {
+	padding: 0;
+}
+		</style>
+	</head>
+	<body>
+<div class="row">
+  <div class="col">
+    <h1>Cheaty Sheet Cheat Sheet</h1>
+  </div>
+  <div class="col sheetAuthor">A Cheat Sheet for Cheaty Sheet, by @CheatySheet.</div>
+</div>
+<div class="blocks"><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Port (listen)</h2>
+  <section class="blockContent"><p><pre><code class="nginx">#standard HTTP protocol
+server {
+  listen 80;
+  listen 443 ssl;
+}</code></pre></p><p>Some text to render in the block.</p><p>Some text to render in the block.</p></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Another Block</h2>
+  <section class="blockContent"><p>Some text to render in the block.</p></section></div>
+</div></div>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+{"version":3,"file":"Render.interface.js","sourceRoot":"","sources":["../../../../src/lib/modules/renderers/Render.interface.ts"],"names":[],"mappings":"","sourcesContent":["export default interface Render {\n    toString(): string;\n    saveToDisk(path: string): void;\n}\n"]}
