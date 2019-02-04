@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CheatySheet | cheaty</title>
+	<title>Parser | cheaty</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_cheatysheet_class_.html">&quot;CheatySheet.class&quot;</a>
+					<a href="../modules/_modules_parsers_parser_interface_.html">&quot;modules/parsers/Parser.interface&quot;</a>
 				</li>
 				<li>
-					<a href="_cheatysheet_class_.cheatysheet.html">CheatySheet</a>
+					<a href="_modules_parsers_parser_interface_.parser.html">Parser</a>
 				</li>
 			</ul>
-			<h1>Class CheatySheet</h1>
+			<h1>Interface Parser</h1>
 		</div>
 	</div>
 </header>
@@ -71,8 +71,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CheatySheet</span>
+						<span class="target">Parser</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_modules_parsers_yml_parser_.ymlparser.html" class="tsd-signature-type">YMLParser</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -80,103 +86,28 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_cheatysheet_class_.cheatysheet.html#blocks" class="tsd-kind-icon">blocks</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_cheatysheet_class_.cheatysheet.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_cheatysheet_class_.cheatysheet.html#options" class="tsd-kind-icon">options</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_cheatysheet_class_.cheatysheet.html#title" class="tsd-kind-icon">title</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_cheatysheet_class_.cheatysheet.html#render" class="tsd-kind-icon">render</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_cheatysheet_class_.cheatysheet.html#parsefromdisk" class="tsd-kind-icon">parse<wbr>From<wbr>Disk</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_modules_parsers_parser_interface_.parser.html#parsefromdisk" class="tsd-kind-icon">parse<wbr>From<wbr>Disk</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_modules_parsers_parser_interface_.parser.html#parsefromstring" class="tsd-kind-icon">parse<wbr>From<wbr>String</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="blocks" class="tsd-anchor"></a>
-					<h3>blocks</h3>
-					<div class="tsd-signature tsd-kind-icon">blocks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cheaty-sheet/Cheaty/blob/6392dc4/src/lib/CheatySheet.class.ts#L18">CheatySheet.class.ts:18</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="description" class="tsd-anchor"></a>
-					<h3>description</h3>
-					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;A Cheat Sheet for Cheaty Sheet, by @CheatySheet.&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cheaty-sheet/Cheaty/blob/6392dc4/src/lib/CheatySheet.class.ts#L17">CheatySheet.class.ts:17</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="options" class="tsd-anchor"></a>
-					<h3>options</h3>
-					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cheaty-sheet/Cheaty/blob/6392dc4/src/lib/CheatySheet.class.ts#L19">CheatySheet.class.ts:19</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="title" class="tsd-anchor"></a>
-					<h3>title</h3>
-					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Cheaty Sheet Cheat Sheet&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cheaty-sheet/Cheaty/blob/6392dc4/src/lib/CheatySheet.class.ts#L16">CheatySheet.class.ts:16</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="render" class="tsd-anchor"></a>
-					<h3>render</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">render<span class="tsd-signature-symbol">(</span>renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_modules_renderers_renderer_interface_.renderer.html" class="tsd-signature-type">Renderer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_modules_renderers_render_interface_.render.html" class="tsd-signature-type">Render</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/cheaty-sheet/Cheaty/blob/6392dc4/src/lib/CheatySheet.class.ts#L21">CheatySheet.class.ts:21</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>renderer: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_modules_renderers_renderer_interface_.renderer.html" class="tsd-signature-type">Renderer</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_modules_renderers_render_interface_.render.html" class="tsd-signature-type">Render</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="parsefromdisk" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> parse<wbr>From<wbr>Disk</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>From<wbr>Disk<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, parser<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_modules_parsers_parser_interface_.parser.html" class="tsd-signature-type">Parser</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_cheatysheet_class_.cheatysheet.html" class="tsd-signature-type">CheatySheet</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<h3>parse<wbr>From<wbr>Disk</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>From<wbr>Disk<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_cheatysheet_class_.cheatysheet.html" class="tsd-signature-type">CheatySheet</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cheaty-sheet/Cheaty/blob/6392dc4/src/lib/CheatySheet.class.ts#L35">CheatySheet.class.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/cheaty-sheet/Cheaty/blob/6392dc4/src/lib/modules/parsers/Parser.interface.ts#L4">modules/parsers/Parser.interface.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -184,11 +115,31 @@
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
 								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_cheatysheet_class_.cheatysheet.html" class="tsd-signature-type">CheatySheet</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="parsefromstring" class="tsd-anchor"></a>
+					<h3>parse<wbr>From<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>From<wbr>String<span class="tsd-signature-symbol">(</span>string<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_cheatysheet_class_.cheatysheet.html" class="tsd-signature-type">CheatySheet</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cheaty-sheet/Cheaty/blob/6392dc4/src/lib/modules/parsers/Parser.interface.ts#L5">modules/parsers/Parser.interface.ts:5</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
 								<li>
-									<h5>parser: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_modules_parsers_parser_interface_.parser.html" class="tsd-signature-type">Parser</a></h5>
+									<h5>string: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_cheatysheet_class_.cheatysheet.html" class="tsd-signature-type">CheatySheet</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_cheatysheet_class_.cheatysheet.html" class="tsd-signature-type">CheatySheet</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -200,10 +151,10 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_cheatysheet_class_.html">"<wbr>Cheaty<wbr>Sheet.class"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_modules_parsers_parser_interface_.html">"modules/parsers/<wbr>Parser.interface"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -224,37 +175,19 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_cheatysheet_class_.cheatysheet.html" class="tsd-kind-icon">Cheaty<wbr>Sheet</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_modules_parsers_parser_interface_.parser.html" class="tsd-kind-icon">Parser</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_cheatysheet_class_.cheatysheet.html#blocks" class="tsd-kind-icon">blocks</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_modules_parsers_parser_interface_.parser.html#parsefromdisk" class="tsd-kind-icon">parse<wbr>From<wbr>Disk</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_cheatysheet_class_.cheatysheet.html#description" class="tsd-kind-icon">description</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_cheatysheet_class_.cheatysheet.html#options" class="tsd-kind-icon">options</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_cheatysheet_class_.cheatysheet.html#title" class="tsd-kind-icon">title</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_cheatysheet_class_.cheatysheet.html#render" class="tsd-kind-icon">render</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_cheatysheet_class_.cheatysheet.html#parsefromdisk" class="tsd-kind-icon">parse<wbr>From<wbr>Disk</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_modules_parsers_parser_interface_.parser.html#parsefromstring" class="tsd-kind-icon">parse<wbr>From<wbr>String</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/_cheatysheet_class_.html#parsers" class="tsd-kind-icon">parsers</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/_cheatysheet_class_.html#renderers" class="tsd-kind-icon">renderers</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

@@ -25,7 +25,6 @@ class HTMLRender implements Render {
         },
         '.blocks': {
             'column-count': 2,
-            'height': '100vh',
             'column-gap': '0',
         },
         '.block': {
@@ -44,6 +43,7 @@ class HTMLRender implements Render {
         '.blockTitle': {
             padding: '0',
             margin: '0',
+            'font-size': '1em',
         },
         '.blockContent': {
             padding: '0',
@@ -85,15 +85,15 @@ export default class HTMLRenderer implements Renderer {
     renderBlock(block: any, options: object = {}): string {
         let blockContent = '';
 
-        if (block.content) {
-            blockContent = block.content.map((content: any) => {
-                switch (content.type) {
+        if (block.sections) {
+            blockContent = block.sections.map((section: any) => {
+                switch (section.type) {
                     case 'text':
-                        return `<p>${content.content}</p>`;
+                        return `<p>${section.content}</p>`;
                     case 'code':
-                        return `<p><pre><code class="${content.language || ''}">${content.content}</code></pre></p>`;
+                        return `<pre><code class="${section.language || ''}">${section.content}</code></pre>`;
                     default:
-                        throw new Error(`Unrecognized block content type: ${block.type}.`);
+                        throw new Error(`Unrecognized block content type: ${section.type}.`);
                 }
             }).join('');
         }

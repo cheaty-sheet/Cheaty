@@ -20,7 +20,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^10.12.21"
+    "@types/node": "^10.12.21",
+    "js-yaml": "^3.12.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.2.0",

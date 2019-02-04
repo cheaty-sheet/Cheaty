@@ -12,6 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const HTML_renderer_1 = __importDefault(require("./modules/renderers/HTML.renderer"));
+const YML_parser_1 = __importDefault(require("./modules/parsers/YML.parser"));
+const parsers = {
+    YML: new YML_parser_1.default(),
+};
 const renderers = {
     HTML: new HTML_renderer_1.default(),
 };
@@ -35,6 +39,21 @@ class CheatySheet {
                 selectedRenderer = renderer;
             }
             return selectedRenderer.render(this);
+        });
+    }
+    static parseFromDisk(path, parser) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let selectedParser;
+            if (typeof parser === 'string') {
+                selectedParser = parsers[parser];
+                if (!selectedParser) {
+                    throw new Error(`Unexpected Parser type requested: ${parser}.`);
+                }
+            }
+            else {
+                selectedParser = parser;
+            }
+            return selectedParser.parseFromDisk(path);
         });
     }
 }
