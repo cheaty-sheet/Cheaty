@@ -1,0 +1,198 @@
+<!doctype html>
+  <html>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  <head>
+		<style>
+body {
+	background-color: #FFFFFF;
+}
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.col {
+	display: flex;
+}
+.sheetTitle {
+}
+.sheetAuthor {
+	font-style: italic;
+	color: gray;
+}
+.blocks {
+	column-count: 2;
+	column-gap: 0;
+}
+.block {
+	break-inside: avoid;
+	page-break-inside: avoid;
+	-webkit-column-break-inside: avoid;
+}
+.blockInside {
+	border: 1px solid gray;
+	box-shadow: black 2px 2px;
+	padding: 4px;
+	margin-bottom: 8px;
+	margin-right: 4px;
+	margin-left: 4px;
+}
+.blockTitle {
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+}
+.blockContent {
+	padding: 0;
+}
+		</style>
+	</head>
+	<body>
+<div class="row">
+  <div class="col">
+    <h1>NGINX</h1>
+  </div>
+  <div class="col sheetAuthor"></div>
+</div>
+<div class="blocks"><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Port (listen)</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  # standard HTTP protocol
+  listen 80;
+
+  # standard HTTPS protocol
+  listen 443 ssl;
+
+  # listen on 80 using IPv6
+  listen [::]:80;
+
+  # listen only on IPv6
+  listen [::]:80 ipv6only=on;
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Domain name (server_name)</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  # Listen to yourdomain.com
+  server_name yourdomain.com;
+
+  # Listen to multiple domains
+  server_name yourdomain.com www.yourdomain.com;
+
+  # Listen to all sub-domains
+  server_name *.yourdomain.com;
+
+  # Listen to all top-level domains
+  server_name yourdomain.*;
+
+  # Listen to unspecified hostnames (listens to IP address itself)
+  server_name "";
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Access Logging (access_log)</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  # Relative or full path to log file
+  access_log /path/to/file.log;
+
+  # Turn 'on' or 'off'
+  access_log on;
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Miscellaneous (gzip, client_max_body_size)</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  # Turn gzip compression 'on' or 'off'
+  gzip on;
+
+  # Limit client body size to 10mb
+  client_max_body_size 10M;
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Static assets</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  listen 80;
+  server_name yourdomain.com;
+
+  location / {
+  	root /path/to/website;
+  }
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Static assets with HTML5 History Mode</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  listen 80;
+  server_name yourdomain.com;
+  root /path/to/website;
+
+  location / {
+  	try_files $uri $uri/ /index.html;
+  }
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Redirects</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  listen 80;
+  server_name www.yourdomain.com;
+  return 301 http://yourdomain.com$request_uri;
+}</code></pre><pre><code class="nginx">server {
+  listen 80;
+  server_name yourdomain.com;
+
+  location /redirect-url {
+	    return 301 http://otherdomain.com;
+  }
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Reverse Proxy</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  listen 80;
+  server_name yourdomain.com;
+
+  location / {
+      proxy_pass http://0.0.0.0:3000;
+      # where 0.0.0.0:3000 is your Node.js Server bound on 0.0.0.0 listing on port 3000
+  }
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">SSL</h2>
+  <section class="blockContent"><pre><code class="nginx">server {
+  listen 443 ssl;
+  server_name yourdomain.com;
+
+  ssl on;
+
+  ssl_certificate /path/to/cert.pem;
+  ssl_certificate_key /path/to/privkey.pem;
+
+  ssl_stapling on;
+  ssl_stapling_verify on;
+  ssl_trusted_certificate /path/to/fullchain.pem;
+
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl_session_timeout 1d;
+  ssl_session_cache shared:SSL:50m;
+  add_header Strict-Transport-Security max-age=15768000;
+}
+# Permanent redirect for HTTP to HTTPS server {
+  listen 80;
+  server_name yourdomain.com;
+  return 301 https://$host$request_uri;
+}</code></pre></section></div>
+</div><div class="block"><div class="blockInside">
+  <h2 class="blockTitle">Load Balancing</h2>
+  <section class="blockContent"><pre><code class="nginx">upstream node_js {
+  server 0.0.0.0:3000;
+  server 0.0.0.0:4000;
+  server 123.131.121.122;
+}
+server {
+  listen 80;
+  server_name yourdomain.com;
+
+  location / {
+      proxy_pass http://node_js;
+  }
+}</code></pre></section></div>
+</div></div>
+	</body>
+</html>

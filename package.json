@@ -2,13 +2,38 @@
   "name": "cheaty",
   "version": "1.0.0",
   "description": "PDF Cheat Sheet generation made easy",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "> 8.0.0",
+    "npm": "> 5.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && npm run docs",
+    "docs": "typedoc --options ./typedoc.json ./src/lib",
+    "lint": "eslint src/ --ext .js,.ts",
+    "test": "mocha -r ts-node/register test/**/*.specs.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^1.11.0"
+    "@types/node": "^10.12.21",
+    "js-yaml": "^3.12.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@typescript-eslint/eslint-plugin": "^1.2.0",
+    "@typescript-eslint/parser": "^1.2.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.13.0",
+    "mocha": "^6.0.0",
+    "source-map-support": "^0.5.10",
+    "ts-node": "^8.0.2",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.2.1"
   }
 }
