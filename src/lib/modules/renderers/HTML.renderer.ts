@@ -4,6 +4,7 @@ import Render from "./Render.interface";
 import Block from "../blocks/Block";
 import Section from "../blocks/Section";
 import CodeSection from "../blocks/CodeSection";
+import TextSection from "../blocks/TextSection";
 
 const fs = require('fs');
 
@@ -90,14 +91,12 @@ export default class HTMLRenderer implements Renderer {
 
         if (block.sections) {
             blockContent = block.sections.map((section: Section) => {
-                switch (section.type) {
-                    case 'text':
-                        return `<p>${section.content}</p>`;
-                    case 'code':
-                        let codeSection = section as CodeSection;
-                        return `<pre><code class="${codeSection.language || ''}">${codeSection.content}</code></pre>`;
-                    default:
-                        throw new Error(`Unrecognized block content type: ${section.type}.`);
+                if (section instanceof TextSection) {
+                    return `<p>${section.content}</p>`;
+                } else if (section instanceof CodeSection) {
+                    return `<pre><code class="${section.language || ''}">${section.content}</code></pre>`;
+                } else {
+                    throw new Error(`Unsupported block type.`);
                 }
             }).join('');
         }
