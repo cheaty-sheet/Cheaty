@@ -45,7 +45,7 @@ describe("HTML", () => {
         const render = await cheaty.render('HTML');
         const html = await render.toString();
         // uncomment for debug saving file
-        fs.writeFileSync("/tmp/cheat.html", html);
+        // fs.writeFileSync("/tmp/cheat.html", html);
         expect(html)
             .contain("Title")
             .contain("Desc")
