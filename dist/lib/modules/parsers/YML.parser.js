@@ -11,7 +11,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const CheatySheet_class_1 = __importDefault(require("../../CheatySheet.class"));
+const CheatySheet_1 = __importDefault(require("../../CheatySheet"));
 const fs = require('fs');
 const yaml = require('js-yaml');
 class YMLParser {
@@ -22,7 +22,7 @@ class YMLParser {
     }
     parseFromString(string) {
         return __awaiter(this, void 0, void 0, function* () {
-            const cheatySheet = new CheatySheet_class_1.default();
+            const cheatySheet = new CheatySheet_1.default();
             const definition = yaml.safeLoad(string);
             cheatySheet.title = definition.title || 'Cheaty Sheet Cheat Sheet';
             cheatySheet.description = definition.description;

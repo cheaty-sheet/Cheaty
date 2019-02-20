@@ -17,12 +17,15 @@
     "lint": "eslint src/ --ext .js,.ts",
     "test": "mocha -r ts-node/register test/**/*.specs.ts"
   },
+  "bin": "./dist/cli.ts",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^10.12.21",
+    "@types/yargs": "^12.0.9",
+    "handlebars": "^3.0.6",
     "js-yaml": "^3.12.1",
-    "handlebars": "^4.1.0"
+    "yargs": "^13.2.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",

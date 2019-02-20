@@ -1,2 +1,2 @@
-import CheatySheet from './lib/CheatySheet.class';
+import CheatySheet from './lib/CheatySheet';
 export = CheatySheet;
