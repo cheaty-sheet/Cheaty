@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "fira_coderegular";
+url("FiraCode-Regular-webfont.woff") format("woff"), font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    width: 210mm;
+    height: 297mm;
+    font-family: "Fira Sans", sans-serif;
+    justify-content: space-evenly;
+}
+
+.sheet.padding-5mm {
+    padding: 5mm;
+}
+
+.head {
+    margin-bottom: 2mm;
+}
+
+.content {
+    width: 100%;
+    height: 90%;
+    flex-flow: row wrap;
+    display: flex;
+    font-size: 7px;
+    align-items: stretch;
+}
+
+.item {
+    background: whitesmoke;
+    padding: 2mm 2mm 1mm 2mm;
+    border-radius: 1mm;
+    margin: 2mm;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    flex: 1 1 auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.item > h2 {
+    margin-bottom: 1mm;
+    font-size: 1.5em;
+}
+
+code.sourceCode {
+    font-family: fira_coderegular, monospace;
+}
+
+div.sourceCode {
+    padding: 1mm;
+    border-radius: 1mm;
+}

@@ -21,7 +21,8 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^10.12.21",
-    "js-yaml": "^3.12.1"
+    "js-yaml": "^3.12.1",
+    "handlebars": "^4.1.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",

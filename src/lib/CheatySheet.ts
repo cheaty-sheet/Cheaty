@@ -14,15 +14,13 @@ const renderers: { [key: string]: Renderer } = {
 };
 
 export default class CheatySheet {
-    title: string;
-    description: string;
     blocks: Block[] = [];
     options: object = {};
 
-    constructor(title: string = "Cheaty Sheet Cheat Sheet",
-                description: string = "A Cheat Sheet for Cheaty Sheet, by @CheatySheet.") {
-        this.title = title;
-        this.description = description;
+    constructor(public title: string = "Cheaty Sheet Cheat Sheet",
+                public description: string = "A Cheat Sheet for Cheaty Sheet, by @CheatySheet.",
+                public size: string= "A4") {
+
     }
 
 

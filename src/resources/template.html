@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="cheatsheet">
+    <title>{{title}}</title>
+    {{!--Paper css--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css" type="text/css"/>
+    <style>
+        @page {
+            size: {{size}}
+        }
+    </style>
+    {{!--custom css--}}
+    <link rel="stylesheet" href="cheatsheet.css" type="text/css"/>
+</head>
+<body class="{{size}}">
+<div class="sheet padding-10mm">
+    <div class="header">
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+    </div>
+    <div class="content">
+        {{!--Iterate on block--}}
+        {{#each blocks}}
+            <div class="item">
+                <h2>{{this.title}}</h2>
+                {{!--Iterate on section--}}
+                {{#each this.sections}}
+                {{!--generate code section--}}
+                    {{#if isCode}}
+                        <div class="sourceCode">
+                            <pre><code class="{{this.language}}">{{content}}</code></pre>
+                        </div>
+                    {{/if}}
+                    {{#if isText}}
+                        <div class="freeText">{{content}}</div>
+                    {{/if}}
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+</div>
+</body>
+</html>
