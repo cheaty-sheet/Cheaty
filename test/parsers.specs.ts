@@ -1,6 +1,6 @@
 import {expect} from "chai";
 import {join} from "path"
-import CheatySheet from "../src/lib/CheatySheet.class";
+import CheatySheet from "../src/lib/CheatySheet";
 
 describe('YML Parser', () => {
     it('should parse YML', async () => {
