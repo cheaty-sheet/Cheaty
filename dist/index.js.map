@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";;;;AAAA,gFAAkD;AAElD,iBAAS,2BAAW,CAAC","sourcesContent":["import CheatySheet from './lib/CheatySheet.class';\n\nexport = CheatySheet;\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";;;;AAAA,oEAA4C;AAE5C,iBAAS,qBAAW,CAAC","sourcesContent":["import CheatySheet from './lib/CheatySheet';\n\nexport = CheatySheet;\n"]}

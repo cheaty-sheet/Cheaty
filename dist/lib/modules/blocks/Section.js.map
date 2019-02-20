@@ -1,0 +1,1 @@
+{"version":3,"file":"Section.js","sourceRoot":"","sources":["../../../../src/lib/modules/blocks/Section.ts"],"names":[],"mappings":";;AAAA,MAAqB,OAAO;IACxB,YAAmB,OAAe;QAAf,YAAO,GAAP,OAAO,CAAQ;IAClC,CAAC;CACJ;AAHD,0BAGC","sourcesContent":["export default class Section {\n    constructor(public content: string) {\n    }\n}"]}
