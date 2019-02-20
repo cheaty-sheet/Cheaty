@@ -9,7 +9,7 @@ Promise.resolve().then(async () => {
 
   cheatySheet.blocks.push({
     title: 'Port (listen)',
-    content: [
+    sections: [
       {
         type: 'code',
         language: 'nginx',

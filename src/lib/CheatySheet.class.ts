@@ -13,10 +13,17 @@ const renderers: { [key: string]: Renderer } = {
 };
 
 export default class CheatySheet {
-    title: string = 'Cheaty Sheet Cheat Sheet';
-    description: string = 'A Cheat Sheet for Cheaty Sheet, by @CheatySheet.';
+    title: string;
+    description: string;
     blocks: object[] = [];
     options: object = {};
+
+    constructor(title: string = "Cheaty Sheet Cheat Sheet",
+                description: string = "A Cheat Sheet for Cheaty Sheet, by @CheatySheet.") {
+        this.title = title;
+        this.description = description;
+    }
+
 
     async render(renderer: string | Renderer): Promise<Render> {
         let selectedRenderer: Renderer;
