@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="generator" content="cheatsheet">
     <title>{{title}}</title>
+    {{!--fonts--}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     {{!--Paper css--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css" type="text/css"/>
     <style>
@@ -11,8 +14,14 @@
             size: {{size}}
         }
     </style>
+    {{!--hightlightJS--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     {{!--custom css--}}
-    <link rel="stylesheet" href="cheatsheet.css" type="text/css"/>
+    <style>
+            {{{style}}}
+    </style>
 </head>
 <body class="{{size}}">
 <div class="sheet padding-10mm">
@@ -35,6 +44,9 @@
                     {{/if}}
                     {{#if isText}}
                         <div class="freeText">{{content}}</div>
+                    {{/if}}
+                    {{#if isUnsupported}}
+                        <div class="freeText" style="background-color: lightcoral">{{content}}</div>
                     {{/if}}
                 {{/each}}
             </div>

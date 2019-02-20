@@ -1,6 +1,6 @@
 import Renderer from "./modules/renderers/Renderer.interface";
 import Render from "./modules/renderers/Render.interface";
-import HTMLRenderer from "./modules/renderers/HTML.renderer";
+import HTMLRenderer from "./modules/renderers/HTMLRenderer/HTML.renderer";
 import Parser from "./modules/parsers/Parser.interface";
 import YMLParser from "./modules/parsers/YML.parser";
 import Block from "./modules/blocks/Block";
