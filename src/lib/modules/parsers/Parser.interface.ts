@@ -1,4 +1,4 @@
-import CheatySheet from "../../CheatySheet.class";
+import CheatySheet from "../../CheatySheet";
 
 export default interface Parser {
     parseFromDisk(path: string): Promise<CheatySheet>;

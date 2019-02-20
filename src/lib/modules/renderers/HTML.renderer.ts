@@ -1,6 +1,11 @@
-import CheatySheet from "../../CheatySheet.class";
+import CheatySheet from "../../CheatySheet";
 import Renderer from "./Renderer.interface";
 import Render from "./Render.interface";
+import Block from "../blocks/Block";
+import Section from "../blocks/Section";
+import CodeSection from "../blocks/CodeSection";
+import TextSection from "../blocks/TextSection";
+
 const fs = require('fs');
 
 class HTMLRender implements Render {
@@ -17,8 +22,7 @@ class HTMLRender implements Render {
         '.col': {
             display: 'flex',
         },
-        '.sheetTitle': {
-        },
+        '.sheetTitle': {},
         '.sheetAuthor': {
             'font-style': 'italic',
             'color': 'gray',
@@ -82,18 +86,17 @@ class HTMLRender implements Render {
 }
 
 export default class HTMLRenderer implements Renderer {
-    renderBlock(block: any, options: object = {}): string {
+    renderBlock(block: Block, options: object = {}): string {
         let blockContent = '';
 
         if (block.sections) {
-            blockContent = block.sections.map((section: any) => {
-                switch (section.type) {
-                    case 'text':
-                        return `<p>${section.content}</p>`;
-                    case 'code':
-                        return `<pre><code class="${section.language || ''}">${section.content}</code></pre>`;
-                    default:
-                        throw new Error(`Unrecognized block content type: ${section.type}.`);
+            blockContent = block.sections.map((section: Section) => {
+                if (section instanceof TextSection) {
+                    return `<p>${section.content}</p>`;
+                } else if (section instanceof CodeSection) {
+                    return `<pre><code class="${section.language || ''}">${section.content}</code></pre>`;
+                } else {
+                    throw new Error(`Unsupported block type.`);
                 }
             }).join('');
         }

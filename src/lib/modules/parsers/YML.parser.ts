@@ -1,4 +1,4 @@
-import CheatySheet from "../../CheatySheet.class";
+import CheatySheet from "../../CheatySheet";
 import Parser from "./Parser.interface";
 const fs = require('fs');
 const yaml = require('js-yaml');
