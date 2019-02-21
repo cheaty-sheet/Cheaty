@@ -10,7 +10,10 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "inlineSources": true
+    "inlineSources": true,
+    "types": [
+      "node"
+    ]
   },
   "include": [
     "src/**/*.ts"
