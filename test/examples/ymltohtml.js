@@ -1,4 +1,4 @@
-const CheatySheet = require('./../../dist');
+const CheatySheet = require('./../../dist/src');
 const path = require('path');
 
 Promise.resolve().then(async () => {
