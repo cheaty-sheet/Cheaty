@@ -24,8 +24,8 @@ class HTMLRender implements Render {
 
 export default class HTMLRenderer implements Renderer {
     async render(cheatySheet: CheatySheet, options: object = {}): Promise<Render> {
-        const templateHtml = fs.readFileSync(join(__dirname, "template.html")).toString();
-        const style = fs.readFileSync(join(__dirname, "style.css")).toString();
+        const templateHtml = fs.readFileSync("resources/template/html/template.html").toString();
+        const style = fs.readFileSync("resources/template/html/style.css").toString();
 
         const template = compile(templateHtml);
         let data = {

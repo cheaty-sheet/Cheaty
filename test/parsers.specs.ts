@@ -5,7 +5,7 @@ import Block from "../src/lib/modules/blocks/Block";
 
 describe('YML Parser', () => {
     it('should parse YML', async () => {
-        const path = join(__dirname, "resources/nginx.cheatsheet.yml");
+        const path = "test/resources/nginx.cheatsheet.yml";
         const sheet = await CheatySheet.parseFromDisk(path, "YML");
 
         expect(sheet.blocks.length).equals(10);

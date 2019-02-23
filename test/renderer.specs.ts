@@ -3,7 +3,6 @@ import Block from "../src/lib/modules/blocks/Block";
 import CheatySheet from "../src/lib/CheatySheet";
 import TextSection from "../src/lib/modules/blocks/TextSection";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
-import * as fs from "fs"
 
 let cheaty: CheatySheet;
 
