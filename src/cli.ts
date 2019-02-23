@@ -14,10 +14,8 @@ yargs
         })
     }, async (argv) => {
         const inputs: string[] = argv.inputs as unknown as string[];
-        const inputPaths = inputs.map(input => path.join(__dirname, input));
 
-
-        await Promise.all(inputPaths.map((input: string) => CheatySheet.parseFromDisk(input, 'YML')
+        await Promise.all(inputs.map((input: string) => CheatySheet.parseFromDisk(input, 'YML')
             .then((sheet: CheatySheet) => sheet.render('HTML')
                 .then((html: Render) => {
                     const output = basename(input, extname(input)) + '.html';

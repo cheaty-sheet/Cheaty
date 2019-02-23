@@ -9,6 +9,8 @@ import TextSection from "../../blocks/TextSection";
 
 const fs = require('fs');
 
+const resources = join(__dirname,"../../../../../resources");
+
 class HTMLRender implements Render {
     constructor(private html: string) {
     }
@@ -24,8 +26,8 @@ class HTMLRender implements Render {
 
 export default class HTMLRenderer implements Renderer {
     async render(cheatySheet: CheatySheet, options: object = {}): Promise<Render> {
-        const templateHtml = fs.readFileSync("resources/template/html/template.html").toString();
-        const style = fs.readFileSync("resources/template/html/style.css").toString();
+        const templateHtml = fs.readFileSync(join(resources,"template/html/template.html")).toString();
+        const style = fs.readFileSync(join(resources, "template/html/style.css")).toString();
 
         const template = compile(templateHtml);
         let data = {
