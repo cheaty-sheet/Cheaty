@@ -15,7 +15,7 @@
     "build": "tsc && npm run docs",
     "docs": "typedoc --options ./typedoc.json ./src/lib",
     "lint": "eslint src/ --ext .js,.ts",
-    "test": "mocha -r ts-node/register test/**/*.specs.ts"
+    "test": "tsc && mocha dist/test"
   },
   "bin": "./dist/cli.ts",
   "author": "",
