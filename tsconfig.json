@@ -5,21 +5,14 @@
     "declaration": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "inlineSources": true,
     "types": [
-      "node"
+      "node",
+      "mocha"
     ]
-  },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.specs.ts",
-    "node_modules"
-  ]
+  }
 }
