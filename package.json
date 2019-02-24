@@ -2,8 +2,8 @@
   "name": "cheaty",
   "version": "1.0.0",
   "description": "PDF Cheat Sheet generation made easy",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -18,7 +18,7 @@
     "lint": "eslint src/ --ext .js,.ts",
     "test": "npm run build && mocha dist/test"
   },
-  "bin": "./dist/cli.ts",
+  "bin": "./dist/src/cli.js",
   "author": "",
   "license": "ISC",
   "dependencies": {
