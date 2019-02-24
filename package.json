@@ -12,7 +12,8 @@
     "npm": "> 5.0.0"
   },
   "scripts": {
-    "build": "tsc && cp -r resources dist",
+    "build": "tsc && npm run resources",
+    "resources": "cp -r --parents resources test/resources dist",
     "docs": "typedoc --options ./typedoc.json ./src/lib",
     "lint": "eslint src/ --ext .js,.ts",
     "test": "npm run build && mocha dist/test"
