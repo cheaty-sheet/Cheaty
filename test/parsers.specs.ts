@@ -2,6 +2,7 @@ import {expect} from "chai";
 import {join} from "path"
 import CheatySheet from "../src/lib/CheatySheet";
 import Block from "../src/lib/modules/blocks/Block";
+import CodeSection from "../src/lib/modules/blocks/CodeSection";
 
 describe('YML Parser', () => {
     it('should parse YML', async () => {
@@ -15,8 +16,10 @@ describe('YML Parser', () => {
         sheet.blocks.forEach((block: Block) => {
             expect(block).haveOwnProperty("title").not.empty;
             expect(block).haveOwnProperty("sections").not.empty;
+            console.log(block);
             block.sections.forEach((section: any) => {
-                expect(section).haveOwnProperty("type").not.empty;
+                console.log(typeof section);
+                expect(section).instanceOf(CodeSection);
                 expect(section).haveOwnProperty("language").not.empty;
                 expect(section).haveOwnProperty("content").not.empty;
             })

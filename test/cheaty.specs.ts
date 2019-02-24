@@ -1,17 +1,17 @@
 import * as path from "path";
 import CheatySheet from "../src/lib/CheatySheet";
 import {existsSync, readFileSync, unlinkSync} from "fs";
-import {expect, fail} from "chai";
+import {expect} from "chai";
 
-describe('yml to html', () => {
+describe('CheatySheet', () => {
     it('should render html', async function () {
         const cheatySheet = await CheatySheet.parseFromDisk(path.join(__dirname, './resources/nginx.cheatsheet.yml'), 'YML');
         console.log(cheatySheet);
         const html = await cheatySheet.render('HTML');
-        const outputPath = './nginx.cheatsheet.html';
-        html.saveToDisk(path.join(__dirname, outputPath));
+        const outputPath = path.join(__dirname,'./nginx.cheatsheet.html');
+        html.saveToDisk(outputPath);
         if (existsSync(outputPath)) {
-            const content = readFileSync(outputPath);
+            const content = readFileSync(outputPath).toString();
             expect(content)
                 .contain('body')
                 .contain('head')
@@ -19,7 +19,7 @@ describe('yml to html', () => {
                 .contain('client_max_body_size 10M');  // example in cheat sheet
             unlinkSync(outputPath);
         } else {
-            fail()
+            throw Error('no cheat sheet saved')
         }
     });
 });
