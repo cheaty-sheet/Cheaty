@@ -17,7 +17,6 @@ describe('YML Parser', () => {
             expect(block).haveOwnProperty("title").not.empty;
             expect(block).haveOwnProperty("sections").not.empty;
             block.sections.forEach((section: any) => {
-                console.log(typeof section);
                 expect(section).instanceOf(CodeSection);
                 expect(section).haveOwnProperty("language").not.empty;
                 expect(section).haveOwnProperty("content").not.empty;
