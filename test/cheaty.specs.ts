@@ -6,7 +6,6 @@ import {expect} from "chai";
 describe('CheatySheet', () => {
     it('should render html', async function () {
         const cheatySheet = await CheatySheet.parseFromDisk(path.join(__dirname, './resources/nginx.cheatsheet.yml'), 'YML');
-        console.log(cheatySheet);
         const html = await cheatySheet.render('HTML');
         const outputPath = path.join(__dirname,'./nginx.cheatsheet.html');
         html.saveToDisk(outputPath);
