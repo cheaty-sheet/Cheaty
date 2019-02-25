@@ -1,4 +1,13 @@
 language: node_js
 node_js:
-  - "node"
-  - "lts/*"
+- node
+- lts/*
+deploy:
+  provider: npm
+  email: pierre.paci@gmail.com
+  api_key:
+    secure: VsfxLB7CLhllqTRxkm9pyYBfc3PQbYmORsfOHJhrCilXPUwtEYJ4RQfZ1IcTXP3RW4VRctCDajrwoTK5s3+M13I+5sU9q+Lao1gECAjF8WUdil+DxvwLtbg/u/4KiNiANNmpqhojrIIt52UlX4X6iG6845IWmQPINCRwCr5p633YXCS1B9rgDMj613CAxBsiSBVG/6qmMazHwgLWPmw1bgEtuYVU6WYI/oTs7BTIDai0P2QtLPSI4slpbeDPWb/GAZD/XUynkEl7ZoSETxJ6Pm9pN/UURGQyokDHFE+3axcwPtOP8gaoxqyKaelvO/EbglkdhNVC91ut6NIbL4gzzbUz2sRw86DAjUuIEQnX4R/Hcg05/MM0+OkeqcTZi8z6F4vzs3Im8YWNDUTKqJx3uUIccCpGStsyRjtPYl1kvomDNa5kkVgwMkJ2lR0jOW4MLKa2xwK7vXkbqLepO5QY0CG0NId/bfHnz4zC2nCfGnZ33H3Nu2L20/TAp04KLpnyyJZ6Aer7rEAHKlLG0gsTKvWgWzluNd7aHz6n2RLAUCQGncLNwi27/92Oq222PxdqhJpyxVz6qDiRThiQ6MI1mSifsI48nBgS7GREGjd2OsXN/uzuEuhpi/KaZlbXqmwOsnDbLpjg/cjPz6mCEbXq1/DB7RXVm5yrOokpp7PDA6E=
+  on:
+    tags: true
+    repo: cheaty-sheet/Cheaty
+    branch: master

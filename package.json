@@ -1,7 +1,7 @@
 {
-  "name": "cheaty",
-  "version": "1.0.0",
-  "description": "PDF Cheat Sheet generation made easy",
+  "name": "@cheaty-sheet/cheaty",
+  "version": "0.1.0",
+  "description": "Cheat Sheet generation made easy",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "files": [
@@ -20,7 +20,7 @@
   },
   "bin": "./dist/src/cli.js",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@types/node": "^10.12.21",
     "@types/yargs": "^12.0.9",
