@@ -30,11 +30,11 @@ class HTMLRender implements Render {
 export default class HTMLRenderer implements Renderer {
     async render(cheatySheet: CheatySheet, options: object = {}): Promise<Render> {
         const templateHtml = fs.readFileSync(join(resources, "template/html/template.html")).toString();
-        const style = fs.readFileSync(join(resources, "template/html/style.css")).toString();
+        let style = fs.readFileSync(join(resources, "template/html/style.css")).toString();
 
         const template = compile(templateHtml);
         let data = {
-            style: style,
+            style: cheatySheet.options.replace_style || style + '\n' + (cheatySheet.options.additional_style || ''),
             title: cheatySheet.title,
             description: cheatySheet.description,
             size: cheatySheet.size,

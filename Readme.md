@@ -93,6 +93,27 @@ options:
     highlight_theme: darkula
 ```
 
+#### Provide your own css
+You can **inject** or **replace** your own css.
+
+To add css :
+```yaml
+title: My Cheatsheet
+description: custom description
+options:
+    additional_style: '.foo {color:black;}'
+```
+
+To overwrite cheaty css:
+```yaml
+title: My Cheatsheet
+description: custom description
+options:
+    replace_style: '.foo {color:black;}'
+```
+
+> replace_style has priority over additional_style, thus having replace_style in options will deactivate any other
+style relative option.
 
 ### Blocks and Sections
 A block represent a reserved space on the sheet paper. It must have a **title** and at least **one section**.

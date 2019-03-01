@@ -70,4 +70,24 @@ describe("Renderer", () => {
         expect(html)
             .contain('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/darkula.min.css')
     });
+    it('should add style', async function () {
+        const sheet = new CheatySheet();
+        sheet.options.additional_style = '.foo {color:black;}';
+        const render = await sheet.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .contain('.foo {color:black;}')
+            .contain('.content')
+    });
+    it('should replace style', async function () {
+        const sheet = new CheatySheet();
+        sheet.options.replace_style = '.foo {color:black;}';
+        const render = await sheet.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .contain('.foo {color:black;}')
+            .not.contain('.content')
+    });
 });
