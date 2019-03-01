@@ -3,6 +3,8 @@ import Block from "../src/lib/modules/blocks/Block";
 import CheatySheet from "../src/lib/CheatySheet";
 import TextSection from "../src/lib/modules/blocks/TextSection";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
+import * as fs from "fs";
+import MarkdownSection from "../src/lib/modules/blocks/MarkdownSection";
 
 let cheaty: CheatySheet;
 
@@ -13,6 +15,10 @@ beforeEach(async () => {
         new Block("Foo",
             [
                 new TextSection("Some text to render in the block."),
+                new MarkdownSection(`First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the **second** column`),
                 new CodeSection("nginx", `#standard HTTP protocol
 server {
   listen 80;
@@ -39,7 +45,7 @@ fun main() {
     );
 });
 
-describe("HTML", () => {
+describe("Renderer", () => {
     it("should render html", async () => {
         const render = await cheaty.render('HTML');
         const html = await render.toString();
@@ -52,5 +58,7 @@ describe("HTML", () => {
             .contain("Foo")
             .contain("Bar")
             .contain("Some text to render in the block.")
+            .contain('<table>')
+            .contain('<strong>')
     })
 });

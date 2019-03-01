@@ -22,14 +22,16 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^10.12.21",
-    "@types/yargs": "^12.0.9",
     "handlebars": "^4.1.0",
     "js-yaml": "^3.12.1",
+    "marked": "^0.6.1",
     "yargs": "^13.2.1"
   },
   "devDependencies": {
+    "@types/node": "^10.12.21",
+    "@types/yargs": "^12.0.9",
     "@types/chai": "^4.1.7",
+    "@types/marked": "^0.6.1",
     "@types/mocha": "^5.2.6",
     "@typescript-eslint/eslint-plugin": "^1.2.0",
     "@typescript-eslint/parser": "^1.2.0",

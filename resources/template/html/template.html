@@ -45,6 +45,9 @@
                     {{#if isText}}
                         <div class="freeText">{{content}}</div>
                     {{/if}}
+                    {{#if isMarkdown}}
+                        <div class="markdown">{{{content}}}</div>
+                    {{/if}}
                     {{#if isUnsupported}}
                         <div class="freeText" style="background-color: lightcoral">{{content}}</div>
                     {{/if}}
