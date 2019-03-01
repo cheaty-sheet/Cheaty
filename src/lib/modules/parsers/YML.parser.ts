@@ -20,6 +20,7 @@ export default class YMLParser implements Parser {
 
         cheatySheet.title = definition.title || 'Cheaty Sheet Cheat Sheet';
         cheatySheet.description = definition.description;
+        cheatySheet.options = definition.options || {};
 
         cheatySheet.blocks = definition.blocks.map((block: any) => {
             if (block.title == undefined || block.sections == undefined) {
