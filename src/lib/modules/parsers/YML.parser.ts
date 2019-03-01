@@ -3,6 +3,7 @@ import Parser from "./Parser.interface";
 import Block from "../blocks/Block";
 import TextSection from "../blocks/TextSection";
 import CodeSection from "../blocks/CodeSection";
+import MarkdownSection from "../blocks/MarkdownSection";
 
 const fs = require('fs');
 const yaml = require('js-yaml');
@@ -29,6 +30,8 @@ export default class YMLParser implements Parser {
                     switch (section.type) {
                         case 'text':
                             return new TextSection(section.content);
+                        case 'markdown':
+                            return new MarkdownSection(section.content);
                         case 'code':
                             return new CodeSection(section.language || 'text', section.content);
                         default:

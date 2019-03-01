@@ -6,10 +6,13 @@ import {join} from "path"
 import {compile} from "handlebars";
 import CodeSection from "../../blocks/CodeSection";
 import TextSection from "../../blocks/TextSection";
+import * as marked from "marked"
+import MarkdownSection from "../../blocks/MarkdownSection";
 
 const fs = require('fs');
 
-const resources = join(__dirname,"../../../../../resources");
+const resources = join(__dirname, "../../../../../resources");
+
 
 class HTMLRender implements Render {
     constructor(private html: string) {
@@ -26,7 +29,7 @@ class HTMLRender implements Render {
 
 export default class HTMLRenderer implements Renderer {
     async render(cheatySheet: CheatySheet, options: object = {}): Promise<Render> {
-        const templateHtml = fs.readFileSync(join(resources,"template/html/template.html")).toString();
+        const templateHtml = fs.readFileSync(join(resources, "template/html/template.html")).toString();
         const style = fs.readFileSync(join(resources, "template/html/style.css")).toString();
 
         const template = compile(templateHtml);
@@ -45,7 +48,12 @@ export default class HTMLRenderer implements Renderer {
                             language: section.language,
                             content: section.content
                         }
-                    } else if (section instanceof TextSection) {
+                    } else if (section instanceof MarkdownSection) {
+                        return {
+                            isMarkdown: true,
+                            content: marked.parse(section.content)
+                        }
+                    }else if (section instanceof TextSection) {
                         return {
                             isText: true,
                             content: section.content

@@ -81,8 +81,14 @@ type: text
 content: My first content
 ```
 
-> Content is inserted as html. You can use <strong>, <a>, etc, as needed.
-> We plan to support markdown in the future.
+#### Markdown section
+Used to represent a text paragraph. It can be used for description of anything you want.
+```yaml
+type: markdown
+content: My first **link** to [google](http://www.google.com)
+```
+
+> We support **github flavored markdown**. Check the [documentation](https://guides.github.com/features/mastering-markdown/) for all features.
 
 #### Code section
 Code section are highlighted portion of code. We're using [highlight.js](https://highlightjs.org/) library for that part.
