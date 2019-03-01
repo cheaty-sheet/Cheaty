@@ -65,6 +65,35 @@ Minimal required properties are :
 * A **description**, which can be empty
 * An **array of blocks**, which must contain at least **one block**, with at least **one section** in it.
 
+### Options
+It is possible to override some parameters in cheaty by using the **options** block.
+
+```text
+title: My Cheatsheet
+description: custom description
+options:
+    key: value
+blocks:
+  - title: My first block
+    sections:
+      - type: text
+        content: My first content
+```
+
+#### Highlight.js theme
+Code highlight is done via [highlight.js](https://highlightjs.org/).
+You can choose a theme on the [demo](https://highlightjs.org/static/demo/) page.
+
+**default**: `github`
+
+```yaml
+title: My Cheatsheet
+description: custom description
+options:
+    highlight_theme: darkula
+```
+
+
 ### Blocks and Sections
 A block represent a reserved space on the sheet paper. It must have a **title** and at least **one section**.
 A block can contain as many sections are needed.
@@ -108,6 +137,8 @@ content: >-
 auto detection here.
 
 > We are using multiline yaml string to insert code in the yaml file.
+
+Please refer to the **Options** section of this documentation for theme customization.
 
 ## Full example
 Here is a complete example of an nginx cheet sheet

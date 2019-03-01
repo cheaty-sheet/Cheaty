@@ -1,5 +1,4 @@
 import {expect} from "chai";
-import {join} from "path"
 import CheatySheet from "../src/lib/CheatySheet";
 import Block from "../src/lib/modules/blocks/Block";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
