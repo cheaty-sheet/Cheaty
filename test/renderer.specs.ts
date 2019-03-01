@@ -3,7 +3,6 @@ import Block from "../src/lib/modules/blocks/Block";
 import CheatySheet from "../src/lib/CheatySheet";
 import TextSection from "../src/lib/modules/blocks/TextSection";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
-import * as fs from "fs";
 import MarkdownSection from "../src/lib/modules/blocks/MarkdownSection";
 
 let cheaty: CheatySheet;
@@ -53,6 +52,7 @@ describe("Renderer", () => {
         // fs.writeFileSync("/tmp/cheat.html", html);
         expect(html)
             .contain("Title")
+            .contain('github.min.css')
             .contain("Desc")
             .contain("#standard HTTP protocol")
             .contain("Foo")
@@ -60,5 +60,14 @@ describe("Renderer", () => {
             .contain("Some text to render in the block.")
             .contain('<table>')
             .contain('<strong>')
-    })
+    });
+    it('should render highlight theme', async function () {
+        const sheet = new CheatySheet();
+        sheet.options.highlight_theme = 'darkula';
+        const render = await sheet.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .contain('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/darkula.min.css')
+    });
 });
