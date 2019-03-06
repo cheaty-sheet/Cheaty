@@ -22,6 +22,11 @@ export default class YMLParser implements Parser {
         cheatySheet.description = definition.description;
         cheatySheet.options = definition.options || {};
 
+        if (cheatySheet.options.size != undefined
+            && !RegExp("(A[3|4|5]|legal|letter)( landscape)?").test(cheatySheet.options.size)){
+                throw new Error("Invalid paper size")
+        }
+
         cheatySheet.blocks = definition.blocks.map((block: any) => {
             if (block.title == undefined || block.sections == undefined) {
                 console.log('invalid block');

@@ -60,6 +60,7 @@ describe("Renderer", () => {
             .contain("Some text to render in the block.")
             .contain('<table>')
             .contain('<strong>')
+            .contain('A4')
     });
     it('should render highlight theme', async function () {
         const sheet = new CheatySheet();
@@ -89,5 +90,22 @@ describe("Renderer", () => {
         expect(html)
             .contain('.foo {color:black;}')
             .not.contain('.content')
+    });
+    it('should have default size "A4"', async function () {
+        const sheet = new CheatySheet();
+        const render = await sheet.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .contain('<body class="A4">')
+    });
+    it('should have size custom "A5 landscape"', async function () {
+        const sheet = new CheatySheet();
+        sheet.options.size = 'A5 landscape';
+        const render = await sheet.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .contain('<body class="A5 landscape">')
     });
 });
