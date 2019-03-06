@@ -122,4 +122,20 @@ describe("Renderer", () => {
             .contain('<div class="watermark">')
             .contain('MY_WATERMARK')
     });
+    it('should not render logo', async function () {
+        const render = await cheaty.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .not.contain('<div class="logo">')
+    });
+    it('should render logo', async function () {
+        cheaty.options.logo = 'MY_LOGO';
+        const render = await cheaty.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .contain('<div class="logo">')
+            .contain('MY_LOGO')
+    });
 });

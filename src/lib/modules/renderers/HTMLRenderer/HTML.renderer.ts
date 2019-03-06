@@ -39,6 +39,7 @@ export default class HTMLRenderer implements Renderer {
             description: cheatySheet.description,
             size: cheatySheet.options.size || "A4",
             watermark: cheatySheet.options.watermark,
+            logoSrc: cheatySheet.options.logo,
             highlightTheme: cheatySheet.options.highlight_theme || 'github',
             blocks: cheatySheet.blocks.map(block => ({
                 title: block.title,
