@@ -79,6 +79,25 @@ blocks:
       - type: text
         content: My first content
 ```
+#### Paper size
+You can customize the sheet paper size using the `size` options.
+It accept the following value : 
+* A3
+* A4
+* A5
+* legal
+* letter
+
+All format have landscape possibilities like `A4 landscape`
+
+**default**: `A4`
+
+```yaml
+title: My Cheatsheet
+description: custom description
+options:
+    size: A5 landscape
+```
 
 #### Highlight.js theme
 Code highlight is done via [highlight.js](https://highlightjs.org/).
