@@ -99,6 +99,16 @@ options:
     size: A5 landscape
 ```
 
+#### Logo
+You can add a logo on document using the `logo` options.
+
+```yaml
+title: My Cheatsheet
+description: custom description
+options:
+    logo: http://your-site.com/logo.png
+```
+
 #### Watermark
 You can add a watermark on document using the `watermark` options.
 

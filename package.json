@@ -16,7 +16,8 @@
     "resources": "cp -R resources/ dist/resources/ && cp -R test/resources/ dist/test/resources/",
     "docs": "typedoc --options ./typedoc.json ./src/lib",
     "lint": "eslint src/ --ext .js,.ts",
-    "test": "npm run build && mocha dist/test"
+    "test": "npm run build && mocha dist/test",
+    "clean": "rm -rf dist"
   },
   "bin": "./dist/src/cli.js",
   "author": "",
