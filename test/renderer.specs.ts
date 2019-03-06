@@ -108,4 +108,22 @@ describe("Renderer", () => {
         expect(html)
             .contain('<body class="A5 landscape">')
     });
+    it('should not render watermark"', async function () {
+        const sheet = new CheatySheet();
+        const render = await sheet.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .not.contain('<div class="watermark">')
+    });
+    it('should render watermark', async function () {
+        const sheet = new CheatySheet();
+        sheet.options.watermark = 'MY_WATERMARK';
+        const render = await sheet.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .contain('<div class="watermark">')
+            .contain('MY_WATERMARK')
+    });
 });
