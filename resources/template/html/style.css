@@ -63,7 +63,8 @@ div.sourceCode {
     position: absolute;
     align-content: center;
     justify-content: center;
-    color: lightgray;
+    color: gray;
+    opacity: 0.25;
     transform: rotate(-45deg);
     font-size: 30vh;
     width: 100%;
