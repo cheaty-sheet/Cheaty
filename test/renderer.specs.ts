@@ -60,6 +60,7 @@ describe("Renderer", () => {
             .contain("Some text to render in the block.")
             .contain('<table>')
             .contain('<strong>')
+            .contain('A4')
     });
     it('should render highlight theme', async function () {
         const sheet = new CheatySheet();
