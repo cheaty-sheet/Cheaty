@@ -13,9 +13,13 @@ body {
     margin-bottom: 2mm;
 }
 
-.header{
+.header {
     display: flex;
     justify-content: space-between;
+}
+
+.logo img {
+    max-height: 5vh;
 }
 
 .content {
