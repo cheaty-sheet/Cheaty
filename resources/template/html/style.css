@@ -55,3 +55,20 @@ div.sourceCode {
     padding: 1mm;
     border-radius: 1mm;
 }
+
+.watermark {
+    left: 0;
+    top: 0;
+    display: flex;
+    position: absolute;
+    align-content: center;
+    justify-content: center;
+    color: gray;
+    opacity: 0.25;
+    transform: rotate(-45deg);
+    font-size: 120px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+}

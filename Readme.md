@@ -99,6 +99,16 @@ options:
     size: A5 landscape
 ```
 
+#### Watermark
+You can add a watermark on document using the `watermark` options.
+
+```yaml
+title: My Cheatsheet
+description: custom description
+options:
+    watermark: Confidential
+```
+
 #### Highlight.js theme
 Code highlight is done via [highlight.js](https://highlightjs.org/).
 You can choose a theme on the [demo](https://highlightjs.org/static/demo/) page.

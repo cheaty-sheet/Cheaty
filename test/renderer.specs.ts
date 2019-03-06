@@ -92,20 +92,34 @@ describe("Renderer", () => {
             .not.contain('.content')
     });
     it('should have default size "A4"', async function () {
-        const sheet = new CheatySheet();
-        const render = await sheet.render('HTML');
+        const render = await cheaty.render('HTML');
         const html = await render.toString();
 
         expect(html)
             .contain('<body class="A4">')
     });
     it('should have size custom "A5 landscape"', async function () {
-        const sheet = new CheatySheet();
-        sheet.options.size = 'A5 landscape';
-        const render = await sheet.render('HTML');
+        cheaty.options.size = 'A5 landscape';
+        const render = await cheaty.render('HTML');
         const html = await render.toString();
 
         expect(html)
             .contain('<body class="A5 landscape">')
+    });
+    it('should not render watermark"', async function () {
+        const render = await cheaty.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .not.contain('<div class="watermark">')
+    });
+    it('should render watermark', async function () {
+        cheaty.options.watermark = 'MY_WATERMARK';
+        const render = await cheaty.render('HTML');
+        const html = await render.toString();
+
+        expect(html)
+            .contain('<div class="watermark">')
+            .contain('MY_WATERMARK')
     });
 });
