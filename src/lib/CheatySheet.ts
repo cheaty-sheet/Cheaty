@@ -18,8 +18,7 @@ export default class CheatySheet {
     options: { [key: string]: any } = {};
 
     constructor(public title: string = "Cheaty Sheet Cheat Sheet",
-                public description: string = "A Cheat Sheet for Cheaty Sheet, by @CheatySheet.",
-                public size: string = "A4") {
+                public description: string = "A Cheat Sheet for Cheaty Sheet, by @CheatySheet.") {
 
     }
 

@@ -37,8 +37,7 @@ export default class HTMLRenderer implements Renderer {
             style: cheatySheet.options.replace_style || style + '\n' + (cheatySheet.options.additional_style || ''),
             title: cheatySheet.title,
             description: cheatySheet.description,
-            size: cheatySheet.size,
-            options: cheatySheet.options,
+            size: cheatySheet.options.size || "A4",
             highlightTheme: cheatySheet.options.highlight_theme || 'github',
             blocks: cheatySheet.blocks.map(block => ({
                 title: block.title,
