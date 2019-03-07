@@ -45,97 +45,109 @@ fun main() {
 });
 
 describe("Renderer", () => {
-    it("should render html", async () => {
-        const render = await cheaty.render('HTML');
-        const html = await render.toString();
-        // uncomment for debug saving file
-        // fs.writeFileSync("/tmp/cheat.html", html);
-        expect(html)
-            .contain("Title")
-            .contain('github.min.css')
-            .contain("Desc")
-            .contain("#standard HTTP protocol")
-            .contain("Foo")
-            .contain("Bar")
-            .contain("Some text to render in the block.")
-            .contain('<table>')
-            .contain('<strong>')
-            .contain('A4')
+    describe("html", () => {
+        it("should render html", async () => {
+            const render = await cheaty.render('HTML');
+            const html = await render.toString();
+            // uncomment for debug saving file
+            // fs.writeFileSync("/tmp/cheat.html", html);
+            expect(html)
+                .contain("Title")
+                .contain('github.min.css')
+                .contain("Desc")
+                .contain("#standard HTTP protocol")
+                .contain("Foo")
+                .contain("Bar")
+                .contain("Some text to render in the block.")
+                .contain('<table>')
+                .contain('<strong>')
+                .contain('A4')
+        })
     });
-    it('should render highlight theme', async function () {
-        const sheet = new CheatySheet();
-        sheet.options.highlight_theme = 'darkula';
-        const render = await sheet.render('HTML');
-        const html = await render.toString();
+    describe("theme", () => {
+        it('should render highlight theme', async function () {
+            const sheet = new CheatySheet();
+            sheet.options.highlight_theme = 'darkula';
+            const render = await sheet.render('HTML');
+            const html = await render.toString();
 
-        expect(html)
-            .contain('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/darkula.min.css')
+            expect(html)
+                .contain('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/darkula.min.css')
+        })
     });
-    it('should add style', async function () {
-        const sheet = new CheatySheet();
-        sheet.options.additional_style = '.foo {color:black;}';
-        const render = await sheet.render('HTML');
-        const html = await render.toString();
+    describe("style", () => {
+        it('should add style', async function () {
+            const sheet = new CheatySheet();
+            sheet.options.additional_style = '.foo {color:black;}';
+            const render = await sheet.render('HTML');
+            const html = await render.toString();
 
-        expect(html)
-            .contain('.foo {color:black;}')
-            .contain('.content')
+            expect(html)
+                .contain('.foo {color:black;}')
+                .contain('.content')
+        });
+        it('should replace style', async function () {
+            const sheet = new CheatySheet();
+            sheet.options.replace_style = '.foo {color:black;}';
+            const render = await sheet.render('HTML');
+            const html = await render.toString();
+
+            expect(html)
+                .contain('.foo {color:black;}')
+                .not.contain('.content')
+        });
     });
-    it('should replace style', async function () {
-        const sheet = new CheatySheet();
-        sheet.options.replace_style = '.foo {color:black;}';
-        const render = await sheet.render('HTML');
-        const html = await render.toString();
+    describe("size", () => {
+        it('should have default size "A4"', async function () {
+            const render = await cheaty.render('HTML');
+            const html = await render.toString();
 
-        expect(html)
-            .contain('.foo {color:black;}')
-            .not.contain('.content')
+            expect(html)
+                .contain('<body class="A4">')
+        });
+        it('should have size custom "A5 landscape"', async function () {
+            cheaty.options.size = 'A5 landscape';
+            const render = await cheaty.render('HTML');
+            const html = await render.toString();
+
+            expect(html)
+                .contain('<body class="A5 landscape">')
+        });
     });
-    it('should have default size "A4"', async function () {
-        const render = await cheaty.render('HTML');
-        const html = await render.toString();
+    describe("watermark", () => {
+        it('should not render watermark"', async function () {
+            const render = await cheaty.render('HTML');
+            const html = await render.toString();
 
-        expect(html)
-            .contain('<body class="A4">')
+            expect(html)
+                .not.contain('<div class="watermark">')
+        });
+        it('should render watermark', async function () {
+            cheaty.options.watermark = 'MY_WATERMARK';
+            const render = await cheaty.render('HTML');
+            const html = await render.toString();
+
+            expect(html)
+                .contain('<div class="watermark">')
+                .contain('MY_WATERMARK')
+        });
     });
-    it('should have size custom "A5 landscape"', async function () {
-        cheaty.options.size = 'A5 landscape';
-        const render = await cheaty.render('HTML');
-        const html = await render.toString();
+    describe("logo", () => {
+        it('should not render logo', async function () {
+            const render = await cheaty.render('HTML');
+            const html = await render.toString();
 
-        expect(html)
-            .contain('<body class="A5 landscape">')
-    });
-    it('should not render watermark"', async function () {
-        const render = await cheaty.render('HTML');
-        const html = await render.toString();
+            expect(html)
+                .not.contain('<div class="logo">')
+        });
+        it('should render logo', async function () {
+            cheaty.options.logo = 'MY_LOGO';
+            const render = await cheaty.render('HTML');
+            const html = await render.toString();
 
-        expect(html)
-            .not.contain('<div class="watermark">')
-    });
-    it('should render watermark', async function () {
-        cheaty.options.watermark = 'MY_WATERMARK';
-        const render = await cheaty.render('HTML');
-        const html = await render.toString();
-
-        expect(html)
-            .contain('<div class="watermark">')
-            .contain('MY_WATERMARK')
-    });
-    it('should not render logo', async function () {
-        const render = await cheaty.render('HTML');
-        const html = await render.toString();
-
-        expect(html)
-            .not.contain('<div class="logo">')
-    });
-    it('should render logo', async function () {
-        cheaty.options.logo = 'MY_LOGO';
-        const render = await cheaty.render('HTML');
-        const html = await render.toString();
-
-        expect(html)
-            .contain('<div class="logo">')
-            .contain('MY_LOGO')
+            expect(html)
+                .contain('<div class="logo">')
+                .contain('MY_LOGO')
+        });
     });
 });
