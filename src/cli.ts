@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import * as yargs from "yargs";
-import CheatySheet from "./";
 import {basename, extname} from "path";
 import Render from "./lib/modules/renderers/Render.interface";
 import YMLParser from "./lib/modules/parsers/YML.parser";
 import HTMLRenderer from "./lib/modules/renderers/HTMLRenderer/HTML.renderer";
+import CheatySheet from "./lib/CheatySheet";
 
 yargs
     .command(['render <inputs...>', '*'], 'render the given input', (yargs) => {
