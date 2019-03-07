@@ -18,8 +18,6 @@ const cheaty = require("@cheaty-sheet/cheaty");
 const YMLParser = cheaty.parsers.YMLParser;
 const HTMLRenderer = cheaty.renderers.HTMLRenderer;
 
-let parser = new YMLParser();
-
 new YMLParser().parseFromDisk("./cheatsheet.yml").then(sheet => {
   new HTMLRenderer().render(sheet).then(render => {
     render.saveToDisk("./cheatsheet.html");
