@@ -32,7 +32,7 @@ export class Options {
 
     private validate() {
         if (!RegExp("(A[3|4|5]|legal|letter)( landscape)?").test(this.size)) {
-            throw new PaperSizeError("Invalid paper size")
+            throw new PaperSizeError()
         }
     }
 }
