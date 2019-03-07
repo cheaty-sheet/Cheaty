@@ -28,19 +28,19 @@ class HTMLRender implements Render {
 }
 
 export default class HTMLRenderer implements Renderer {
-    async render(cheatySheet: CheatySheet, options: object = {}): Promise<Render> {
+    async render(cheatySheet: CheatySheet): Promise<Render> {
         const templateHtml = fs.readFileSync(join(resources, "template/html/template.html")).toString();
         let style = fs.readFileSync(join(resources, "template/html/style.css")).toString();
 
         const template = compile(templateHtml);
         let data = {
-            style: cheatySheet.options.replace_style || style + '\n' + (cheatySheet.options.additional_style || ''),
+            style: cheatySheet.options.replaceStyle || style + '\n' + (cheatySheet.options.additionalStyle || ''),
             title: cheatySheet.title,
             description: cheatySheet.description,
-            size: cheatySheet.options.size || "A4",
+            size: cheatySheet.options.size,
             watermark: cheatySheet.options.watermark,
             logoSrc: cheatySheet.options.logo,
-            highlightTheme: cheatySheet.options.highlight_theme || 'github',
+            highlightTheme: cheatySheet.options.highlightTheme,
             blocks: cheatySheet.blocks.map(block => ({
                 title: block.title,
                 sections: block.sections.map(section => {

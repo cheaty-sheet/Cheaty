@@ -1,9 +1,10 @@
-import CheatySheet from "../../CheatySheet";
+import CheatySheet, {Options} from "../../CheatySheet";
 import Parser from "./Parser.interface";
 import Block from "../blocks/Block";
 import TextSection from "../blocks/TextSection";
 import CodeSection from "../blocks/CodeSection";
 import MarkdownSection from "../blocks/MarkdownSection";
+import {InvalidBlockError} from "../../Errors";
 
 const fs = require('fs');
 const yaml = require('js-yaml');
@@ -14,23 +15,24 @@ export default class YMLParser implements Parser {
     }
 
     async parseFromString(string: string): Promise<CheatySheet> {
-        const cheatySheet = new CheatySheet();
-
         const definition = yaml.safeLoad(string);
+        let optionblock = definition.options;
 
-        cheatySheet.title = definition.title || 'Cheaty Sheet Cheat Sheet';
-        cheatySheet.description = definition.description;
-        cheatySheet.options = definition.options || {};
+        let options: Options;
+        if (optionblock) {
+            options = new Options({
+                size: optionblock.size,
+                logo: optionblock.logo,
+                highlightTheme: optionblock.highlight_theme,
+                watermark: optionblock.watermark,
+                additionalStyle: optionblock.additional_style,
+                replaceStyle: optionblock.replace_style
+            })
+        } else options = new Options();
 
-        if (cheatySheet.options.size != undefined
-            && !RegExp("(A[3|4|5]|legal|letter)( landscape)?").test(cheatySheet.options.size)){
-                throw new Error("Invalid paper size")
-        }
-
-        cheatySheet.blocks = definition.blocks.map((block: any) => {
+        const blocks = definition.blocks.map((block: any) => {
             if (block.title == undefined || block.sections == undefined) {
-                console.log('invalid block');
-                console.log(block)
+                throw new InvalidBlockError(block)
             } else {
                 return new Block(block.title, block.sections.map((section: any) => {
                     switch (section.type) {
@@ -50,7 +52,11 @@ export default class YMLParser implements Parser {
 
         }).filter((block: any) => block != undefined);
 
-        return cheatySheet;
+        return new CheatySheet(
+            definition.title,
+            definition.description,
+            blocks,
+            options);
     }
 
 }

@@ -4,6 +4,7 @@ import CheatySheet from "../src/lib/CheatySheet";
 import TextSection from "../src/lib/modules/blocks/TextSection";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
 import MarkdownSection from "../src/lib/modules/blocks/MarkdownSection";
+import HTMLRenderer from "../src/lib/modules/renderers/HTMLRenderer/HTML.renderer";
 
 let cheaty: CheatySheet;
 
@@ -47,7 +48,7 @@ fun main() {
 describe("Renderer", () => {
     describe("html", () => {
         it("should render html", async () => {
-            const render = await cheaty.render('HTML');
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
             // uncomment for debug saving file
             // fs.writeFileSync("/tmp/cheat.html", html);
@@ -66,9 +67,8 @@ describe("Renderer", () => {
     });
     describe("theme", () => {
         it('should render highlight theme', async function () {
-            const sheet = new CheatySheet();
-            sheet.options.highlight_theme = 'darkula';
-            const render = await sheet.render('HTML');
+            cheaty.options.highlightTheme = 'darkula';
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
             expect(html)
@@ -77,9 +77,8 @@ describe("Renderer", () => {
     });
     describe("style", () => {
         it('should add style', async function () {
-            const sheet = new CheatySheet();
-            sheet.options.additional_style = '.foo {color:black;}';
-            const render = await sheet.render('HTML');
+            cheaty.options.additionalStyle = '.foo {color:black;}';
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
             expect(html)
@@ -88,8 +87,8 @@ describe("Renderer", () => {
         });
         it('should replace style', async function () {
             const sheet = new CheatySheet();
-            sheet.options.replace_style = '.foo {color:black;}';
-            const render = await sheet.render('HTML');
+            sheet.options.replaceStyle = '.foo {color:black;}';
+            const render = await new HTMLRenderer().render(sheet);
             const html = await render.toString();
 
             expect(html)
@@ -99,7 +98,7 @@ describe("Renderer", () => {
     });
     describe("size", () => {
         it('should have default size "A4"', async function () {
-            const render = await cheaty.render('HTML');
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
             expect(html)
@@ -107,7 +106,7 @@ describe("Renderer", () => {
         });
         it('should have size custom "A5 landscape"', async function () {
             cheaty.options.size = 'A5 landscape';
-            const render = await cheaty.render('HTML');
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
             expect(html)
@@ -116,7 +115,7 @@ describe("Renderer", () => {
     });
     describe("watermark", () => {
         it('should not render watermark"', async function () {
-            const render = await cheaty.render('HTML');
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
             expect(html)
@@ -124,7 +123,7 @@ describe("Renderer", () => {
         });
         it('should render watermark', async function () {
             cheaty.options.watermark = 'MY_WATERMARK';
-            const render = await cheaty.render('HTML');
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
             expect(html)
@@ -134,7 +133,7 @@ describe("Renderer", () => {
     });
     describe("logo", () => {
         it('should not render logo', async function () {
-            const render = await cheaty.render('HTML');
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
             expect(html)
@@ -142,7 +141,7 @@ describe("Renderer", () => {
         });
         it('should render logo', async function () {
             cheaty.options.logo = 'MY_LOGO';
-            const render = await cheaty.render('HTML');
+            const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
             expect(html)
