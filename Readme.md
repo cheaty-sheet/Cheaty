@@ -25,11 +25,13 @@ new YMLParser().parseFromDisk("./cheatsheet.yml").then(sheet => {
 });
 ```
 
-`cheaty.parseFromDisk('PATH', 'PARSER_NAME')` will parse your sheet cheat. For now, only `YML` is a valid parser.
-But you can expect more to come in the future !
-Then `sheet.render('RENDERER_NAME')` will render your sheet cheat. As for parser, for now, we only support `HTML`
-rendering. The returned object have 2 method : `.toString()` to get the cheatsheet as (html) string, and
+`YMLParser` instance have a `parseFromDisk('PATH')` method which will parse your sheet cheat. For now, we only provide
+a YML parser. But you can expect more to come in the future ! 
+Then as for parser, we can instantiate a `HTMLRenderer` which have a `render(sheet)` method to render your sheet cheat.
+And for now, we only support `HTML` rendering. The returned `render` object have 2 method : `.toString()` to get the cheatsheet as (html) string, and
 `.savetoDisk(OUTPUT_PATH)` to directly save your generated sheet cheat on disk.
+
+> Parser also have a `.parseFromString(STRING)` to directly parse content. Here you would pass a YML string.
 
 ### CLI
 One simpler option is to directly use the `cheaty` command.
