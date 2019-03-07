@@ -14,8 +14,11 @@ Rendered cheat sheet are **print ready, A4 formatted, html files**.
 
 ### Script
 ```javascript
-const YMLParser = require("@cheaty-sheet/cheaty").parsers.YMLParser;
-const HTMLRenderer = require("@cheaty-sheet/cheaty").renderers.HTMLRenderer;
+const cheaty = require("@cheaty-sheet/cheaty");
+const YMLParser = cheaty.parsers.YMLParser;
+const HTMLRenderer = cheaty.renderers.HTMLRenderer;
+
+let parser = new YMLParser();
 
 new YMLParser().parseFromDisk("./cheatsheet.yml").then(sheet => {
   new HTMLRenderer().render(sheet).then(render => {
