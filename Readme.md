@@ -14,15 +14,14 @@ Rendered cheat sheet are **print ready, A4 formatted, html files**.
 
 ### Script
 ```javascript
-const cheaty = require('@cheaty-sheet/cheaty');
+const YMLParser = require("@cheaty-sheet/cheaty").parsers.YMLParser;
+const HTMLRenderer = require("@cheaty-sheet/cheaty").renderers.HTMLRenderer;
 
-
-cheaty.parseFromDisk('./cheatsheet.yml', 'YML')
-    .then(sheet => {
-        sheet.render('HTML').then(htmlRender => {
-            htmlRender.saveToDisk('./cheatsheet.html')
-        })
-    });
+new YMLParser().parseFromDisk("./cheatsheet.yml").then(sheet => {
+  new HTMLRenderer().render(sheet).then(render => {
+    render.saveToDisk("./cheatsheet.html");
+  });
+});
 ```
 
 `cheaty.parseFromDisk('PATH', 'PARSER_NAME')` will parse your sheet cheat. For now, only `YML` is a valid parser.
