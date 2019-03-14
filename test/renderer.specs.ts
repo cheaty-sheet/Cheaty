@@ -149,4 +149,22 @@ describe("Renderer", () => {
                 .contain('MY_LOGO')
         });
     });
+    describe("footer", ()=>{
+        it('should render author', async function () {
+            cheaty.options.author = 'foo **bar**';
+            const render = await new HTMLRenderer().render(cheaty);
+            const html = await render.toString();
+
+            expect(html)
+                .contain('<div class="author">')
+                .contain('foo <strong>bar</strong>')
+        });
+        it('should NOT render author', async function () {
+            const render = await new HTMLRenderer().render(cheaty);
+            const html = await render.toString();
+
+            expect(html)
+                .not.contain('<div class="author">')
+        });
+    })
 });

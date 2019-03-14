@@ -107,6 +107,18 @@ options:
     size: A5 landscape
 ```
 
+#### Author
+You can add a author mention using the `author` options.
+
+```yaml
+title: My Cheatsheet
+description: custom description
+options:
+    author: [cheaty sheet](http://my-site.com)
+```
+
+> Author option support markdown
+
 #### Logo
 You can add a logo on document using the `logo` options.
 

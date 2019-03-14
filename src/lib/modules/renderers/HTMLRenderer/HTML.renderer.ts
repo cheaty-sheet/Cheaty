@@ -37,6 +37,7 @@ export default class HTMLRenderer implements Renderer {
             style: cheatySheet.options.replaceStyle || style + '\n' + (cheatySheet.options.additionalStyle || ''),
             title: cheatySheet.title,
             description: cheatySheet.description,
+            author: cheatySheet.options.author ? marked.parse(cheatySheet.options.author as string) : undefined,
             size: cheatySheet.options.size,
             watermark: cheatySheet.options.watermark,
             logoSrc: cheatySheet.options.logo,
@@ -55,7 +56,7 @@ export default class HTMLRenderer implements Renderer {
                             isMarkdown: true,
                             content: marked.parse(section.content)
                         }
-                    }else if (section instanceof TextSection) {
+                    } else if (section instanceof TextSection) {
                         return {
                             isText: true,
                             content: section.content

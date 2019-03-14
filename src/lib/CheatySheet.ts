@@ -8,6 +8,7 @@ interface OptionBlock {
     watermark: string;
     additionalStyle: string;
     replaceStyle: string;
+    author: string;
 }
 
 export class Options {
@@ -17,6 +18,7 @@ export class Options {
     public watermark?: string;
     public additionalStyle?: string;
     public replaceStyle?: string;
+    public author?: string;
 
     constructor(options?: OptionBlock) {
         if (options) {
@@ -26,6 +28,7 @@ export class Options {
             if (options.watermark) this.watermark = options.watermark;
             if (options.additionalStyle) this.additionalStyle = options.additionalStyle;
             if (options.replaceStyle) this.replaceStyle = options.replaceStyle;
+            if (options.author) this.author = options.author;
         }
         this.validate()
     }

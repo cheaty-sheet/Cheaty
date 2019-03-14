@@ -63,6 +63,13 @@
         </div>
         {{/each}}
     </div>
+    <div class="footer">
+        {{#if author}}
+        <div class="author">
+            {{{author}}}
+        </div>
+        {{/if}}
+    </div>
     {{#if watermark}}
     <div class="watermark">
         <p>{{watermark}}</p>
