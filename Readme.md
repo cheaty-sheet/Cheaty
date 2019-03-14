@@ -36,11 +36,17 @@ And for now, we only support `HTML` rendering. The returned `render` object have
 ### CLI
 One simpler option is to directly use the `cheaty` command.
 ```text
-cheaty <command>
+cheaty render <inputs...>
 
-Commands:
-  cheaty render <inputs...>  render the given input
+render the given input
 
+Positionals:
+  inputs  input(s) yaml file                                            [string]
+
+Options:
+  --version     Show version number                                    [boolean]
+  -h, --help    Show help                                              [boolean]
+  -o, --output  output folder                           [string] [default: "./"]
 ```
 So you could use `cheaty cheatsheet.yml` and then open the newly created `cheatsheet.html` file.
 
