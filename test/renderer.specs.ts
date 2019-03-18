@@ -159,6 +159,15 @@ describe("Renderer", () => {
                 .contain('<div class="author">')
                 .contain('foo <strong>bar</strong>')
         });
+        it('should render author with link', async function () {
+            cheaty.options.author = 'foo [bar](http://github.com)';
+            const render = await new HTMLRenderer().render(cheaty);
+            const html = await render.toString();
+
+            expect(html)
+                .contain('<div class="author">')
+                .contain('<a href="http://github.com">bar</a>')
+        });
         it('should NOT render author', async function () {
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
