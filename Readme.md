@@ -108,16 +108,18 @@ options:
 ```
 
 #### Author
-You can add a author mention using the `author` options.
+You can add a author mention using the `author` options. This option fully support markdown.
 
 ```yaml
 title: My Cheatsheet
 description: custom description
 options:
-    author: [cheaty sheet](http://my-site.com)
+    author: Hello [cheaty sheet](http://my-site.com)
 ```
 
-> Author option support markdown
+Note that due to YML limitation, a single markdown link is not a valid string.
+You'll have to write it like `author: "[cheaty sheet](http://my-site.com)"`
+
 
 #### Logo
 You can add a logo on document using the `logo` options.
