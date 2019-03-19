@@ -73,6 +73,8 @@ Minimal required properties are :
 * A **description**, which can be empty
 * An **array of blocks**, which must contain at least **one block**, with at least **one section** in it.
 
+> Title and description can be markdown
+
 ### Options
 It is possible to override some parameters in cheaty by using the **options** block.
 
