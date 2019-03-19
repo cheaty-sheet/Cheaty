@@ -210,7 +210,7 @@ Code section are highlighted portion of code. We're using [highlight.js](https:/
 ```yaml
 type: code
 language: javascript
-content: >-
+content: |-
   cheaty.parseFromDisk('./cheatsheet.yml', 'YML')
       .then(sheet => {
           sheet.render('HTML').then(htmlRender => {
@@ -237,7 +237,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             # standard HTTP protocol
             listen 80;
@@ -255,7 +255,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             # Listen to yourdomain.com
             server_name yourdomain.com;
@@ -276,7 +276,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             # Relative or full path to log file
             access_log /path/to/file.log;
@@ -288,7 +288,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             # Turn gzip compression 'on' or 'off'
             gzip on;
@@ -300,7 +300,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             listen 80;
             server_name yourdomain.com;
@@ -313,7 +313,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             listen 80;
             server_name yourdomain.com;
@@ -327,7 +327,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             listen 80;
             server_name www.yourdomain.com;
@@ -335,7 +335,7 @@ blocks:
           }
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             listen 80;
             server_name yourdomain.com;
@@ -348,7 +348,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             listen 80;
             server_name yourdomain.com;
@@ -362,7 +362,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           server {
             listen 443 ssl;
             server_name yourdomain.com;
@@ -392,7 +392,7 @@ blocks:
     sections:
       - type: code
         language: nginx
-        content: >-
+        content: |-
           upstream node_js {
             server 0.0.0.0:3000;
             server 0.0.0.0:4000;
