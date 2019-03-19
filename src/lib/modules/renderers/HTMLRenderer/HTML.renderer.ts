@@ -66,8 +66,8 @@ export default class HTMLRenderer implements Renderer {
         debug('compiled template');
         let data = {
             style: HTMLRenderer.computeStyle(cheatySheet),
-            title: safeMarkedParse(cheatySheet.title),
-            description: safeMarkedParse(cheatySheet.description),
+            title: cheatySheet.title,
+            description: cheatySheet.description,
             author: safeMarkedParse(cheatySheet.options.author),
             size: cheatySheet.options.size,
             watermark: cheatySheet.options.watermark,
