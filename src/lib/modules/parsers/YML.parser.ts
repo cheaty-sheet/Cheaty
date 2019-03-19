@@ -8,13 +8,16 @@ import {InvalidBlockError} from "../../Errors";
 
 const fs = require('fs');
 const yaml = require('js-yaml');
+const debug = require('debug')('cheaty:parser:yml');
 
 export default class YMLParser implements Parser {
     async parseFromDisk(path: string): Promise<CheatySheet> {
+        debug('parsing yml from disk');
         return this.parseFromString(fs.readFileSync(path));
     }
 
     async parseFromString(string: string): Promise<CheatySheet> {
+        debug('parsing yml from string');
         const definition = yaml.safeLoad(string);
         let optionblock = definition.options;
 
@@ -30,6 +33,7 @@ export default class YMLParser implements Parser {
                 author: optionblock.author
             })
         } else options = new Options();
+        debug('parsed options');
 
         const blocks = definition.blocks.map((block: any) => {
             if (block.title == undefined || block.sections == undefined) {
@@ -52,6 +56,7 @@ export default class YMLParser implements Parser {
             }
 
         }).filter((block: any) => block != undefined);
+        debug('parsed blocks');
 
         return new CheatySheet(
             definition.title,
