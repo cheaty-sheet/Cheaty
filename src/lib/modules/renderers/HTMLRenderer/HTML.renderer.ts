@@ -13,6 +13,9 @@ const fs = require('fs');
 
 const resources = join(__dirname, "../../../../../resources");
 
+function safeMarkedParse(markdown?: string) {
+    return markdown ? marked.parse(markdown) : markdown
+}
 
 class HTMLRender implements Render {
     constructor(private html: string) {
@@ -35,9 +38,9 @@ export default class HTMLRenderer implements Renderer {
         const template = compile(templateHtml);
         let data = {
             style: cheatySheet.options.replaceStyle || style + '\n' + (cheatySheet.options.additionalStyle || ''),
-            title: cheatySheet.title,
-            description: cheatySheet.description,
-            author: cheatySheet.options.author ? marked.parse(cheatySheet.options.author as string) : undefined,
+            title: safeMarkedParse(cheatySheet.title),
+            description: safeMarkedParse(cheatySheet.description),
+            author: safeMarkedParse(cheatySheet.options.author),
             size: cheatySheet.options.size,
             watermark: cheatySheet.options.watermark,
             logoSrc: cheatySheet.options.logo,
@@ -54,7 +57,7 @@ export default class HTMLRenderer implements Renderer {
                     } else if (section instanceof MarkdownSection) {
                         return {
                             isMarkdown: true,
-                            content: marked.parse(section.content)
+                            content: safeMarkedParse(section.content)
                         }
                     } else if (section instanceof TextSection) {
                         return {
