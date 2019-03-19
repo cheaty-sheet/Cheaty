@@ -20,9 +20,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     {{!--custom css--}}
-    <style>
-            {{{style}}}
-    </style>
+    {{#if style.style}}
+        <style>
+                {{{style.style}}}
+        </style>
+    {{/if}}
+    {{#if style.styleUrl}}
+        <link rel="stylesheet" href="{{style.styleUrl}}">
+    {{/if}}
 </head>
 <body class="{{size}}">
 <div class="sheet padding-10mm">
@@ -32,48 +37,48 @@
             <p>{{description}}</p>
         </div>
         {{#if logoSrc}}
-        <div class="logo">
-            <img src="{{logoSrc}}" alt="logo">
-        </div>
+            <div class="logo">
+                <img src="{{logoSrc}}" alt="logo">
+            </div>
         {{/if}}
     </div>
     <div class="content">
         {{!--Iterate on block--}}
         {{#each blocks}}
-        <div class="item">
-            <h2>{{this.title}}</h2>
-            {{!--Iterate on section--}}
-            {{#each this.sections}}
-            {{!--generate code section--}}
-            {{#if isCode}}
-            <div class="sourceCode">
-                <pre><code class="{{this.language}}">{{content}}</code></pre>
+            <div class="item">
+                <h2>{{this.title}}</h2>
+                {{!--Iterate on section--}}
+                {{#each this.sections}}
+                {{!--generate code section--}}
+                    {{#if isCode}}
+                        <div class="sourceCode">
+                            <pre><code class="{{this.language}}">{{content}}</code></pre>
+                        </div>
+                    {{/if}}
+                    {{#if isText}}
+                        <div class="freeText">{{content}}</div>
+                    {{/if}}
+                    {{#if isMarkdown}}
+                        <div class="markdown">{{{content}}}</div>
+                    {{/if}}
+                    {{#if isUnsupported}}
+                        <div class="freeText" style="background-color: lightcoral">{{content}}</div>
+                    {{/if}}
+                {{/each}}
             </div>
-            {{/if}}
-            {{#if isText}}
-            <div class="freeText">{{content}}</div>
-            {{/if}}
-            {{#if isMarkdown}}
-            <div class="markdown">{{{content}}}</div>
-            {{/if}}
-            {{#if isUnsupported}}
-            <div class="freeText" style="background-color: lightcoral">{{content}}</div>
-            {{/if}}
-            {{/each}}
-        </div>
         {{/each}}
     </div>
     <div class="footer">
         {{#if author}}
-        <div class="author">
-            {{{author}}}
-        </div>
+            <div class="author">
+                {{{author}}}
+            </div>
         {{/if}}
     </div>
     {{#if watermark}}
-    <div class="watermark">
-        <p>{{watermark}}</p>
-    </div>
+        <div class="watermark">
+            <p>{{watermark}}</p>
+        </div>
     {{/if}}
 </div>
 </body>

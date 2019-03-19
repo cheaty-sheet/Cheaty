@@ -5,6 +5,7 @@ import TextSection from "../src/lib/modules/blocks/TextSection";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
 import MarkdownSection from "../src/lib/modules/blocks/MarkdownSection";
 import HTMLRenderer from "../src/lib/modules/renderers/HTMLRenderer/HTML.renderer";
+import {fail} from "assert";
 
 let cheaty: CheatySheet;
 
@@ -95,6 +96,26 @@ describe("Renderer", () => {
                 .contain('.foo {color:black;}')
                 .not.contain('.content')
         });
+        it('should add style url', async function () {
+            cheaty.options.additionalStyleUrl = './style.css';
+            const render = await new HTMLRenderer().render(cheaty);
+            const html = await render.toString();
+
+            expect(html)
+                .contain('<link rel="stylesheet"' +
+                    ' href="./style.css">')
+                .contain('.content') // original style
+        });
+        it('should replace style url', async function () {
+            cheaty.options.replaceStyleUrl = './style.css';
+            const render = await new HTMLRenderer().render(cheaty);
+            const html = await render.toString();
+
+            expect(html)
+                .contain('<link rel="stylesheet"' +
+                    ' href="./style.css">')
+                .not.contain('.content') // original style
+        });
     });
     describe("size", () => {
         it('should have default size "A4"', async function () {
@@ -149,7 +170,7 @@ describe("Renderer", () => {
                 .contain('MY_LOGO')
         });
     });
-    describe("footer", ()=>{
+    describe("footer", () => {
         it('should render author', async function () {
             cheaty.options.author = 'foo **bar**';
             const render = await new HTMLRenderer().render(cheaty);

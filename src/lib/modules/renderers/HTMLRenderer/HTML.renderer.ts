@@ -15,6 +15,9 @@ const debug = require('debug')('cheaty:renderer:html');
 
 const resources = join(__dirname, "../../../../../resources");
 
+const defaultStyle = fs.readFileSync(join(resources, "template/html/style.css")).toString();
+debug('read style');
+
 marked.setOptions({
     gfm: true,
     breaks: true,
@@ -40,17 +43,29 @@ class HTMLRender implements Render {
 }
 
 export default class HTMLRenderer implements Renderer {
+    private static computeStyle(cheatySheet: CheatySheet): { style?: string, styleUrl?: string } {
+        if (cheatySheet.options.replaceStyleUrl) {
+            return {style: undefined, styleUrl: cheatySheet.options.replaceStyleUrl}
+        } else if (cheatySheet.options.replaceStyle) {
+            return {style: cheatySheet.options.replaceStyle}
+        } else {
+            const style: { style?: string, styleUrl?: string } = {style: defaultStyle};
+            if (cheatySheet.options.additionalStyle) style.style += '\n' + cheatySheet.options.additionalStyle;
+            if (cheatySheet.options.additionalStyleUrl) style.styleUrl = cheatySheet.options.additionalStyleUrl;
+            return style;
+        }
+    }
+
     async render(cheatySheet: CheatySheet): Promise<Render> {
         debug('rendering html');
         const templateHtml = fs.readFileSync(join(resources, "template/html/template.html")).toString();
         debug('read template');
-        let style = fs.readFileSync(join(resources, "template/html/style.css")).toString();
-        debug('read style');
+
 
         const template = compile(templateHtml);
         debug('compiled template');
         let data = {
-            style: cheatySheet.options.replaceStyle || style + '\n' + (cheatySheet.options.additionalStyle || ''),
+            style: HTMLRenderer.computeStyle(cheatySheet),
             title: safeMarkedParse(cheatySheet.title),
             description: safeMarkedParse(cheatySheet.description),
             author: safeMarkedParse(cheatySheet.options.author),

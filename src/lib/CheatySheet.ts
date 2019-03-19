@@ -7,7 +7,9 @@ interface OptionBlock {
     logo: string;
     watermark: string;
     additionalStyle: string;
+    additionalStyleUrl: string;
     replaceStyle: string;
+    replaceStyleUrl: string;
     author: string;
 }
 
@@ -17,7 +19,9 @@ export class Options {
     public logo?: string;
     public watermark?: string;
     public additionalStyle?: string;
+    public additionalStyleUrl?: string;
     public replaceStyle?: string;
+    public replaceStyleUrl?: string;
     public author?: string;
 
     constructor(options?: OptionBlock) {
@@ -27,7 +31,9 @@ export class Options {
             if (options.logo) this.logo = options.logo;
             if (options.watermark) this.watermark = options.watermark;
             if (options.additionalStyle) this.additionalStyle = options.additionalStyle;
+            if (options.additionalStyleUrl) this.additionalStyleUrl = options.additionalStyleUrl;
             if (options.replaceStyle) this.replaceStyle = options.replaceStyle;
+            if (options.replaceStyleUrl) this.replaceStyleUrl = options.replaceStyleUrl;
             if (options.author) this.author = options.author;
         }
         this.validate()

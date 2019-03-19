@@ -178,6 +178,8 @@ options:
 > replace_style has priority over additional_style, thus having replace_style in options will deactivate any other
 style relative option.
 
+You can also link to an external style sheet by using `additional_style_url` or `replace_style_url`.
+
 ### Blocks and Sections
 A block represent a reserved space on the sheet paper. It must have a **title** and at least **one section**.
 A block can contain as many sections are needed.

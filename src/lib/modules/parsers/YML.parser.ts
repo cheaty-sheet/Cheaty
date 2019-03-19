@@ -29,8 +29,10 @@ export default class YMLParser implements Parser {
                 highlightTheme: optionblock.highlight_theme,
                 watermark: optionblock.watermark,
                 additionalStyle: optionblock.additional_style,
+                additionalStyleUrl: optionblock.additional_style_url,
                 replaceStyle: optionblock.replace_style,
-                author: optionblock.author
+                replaceStyleUrl: optionblock.replace_style_url,
+                author: optionblock.author,
             })
         } else options = new Options();
         debug('parsed options');
