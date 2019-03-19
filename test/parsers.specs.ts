@@ -1,5 +1,4 @@
 import {expect} from "chai";
-import CheatySheet from "../src/lib/CheatySheet";
 import Block from "../src/lib/modules/blocks/Block";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
 import YMLParser from "../src/lib/modules/parsers/YML.parser";
