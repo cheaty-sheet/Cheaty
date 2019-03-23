@@ -50,8 +50,13 @@ Options:
 ```
 So you could use `cheaty cheatsheet.yml` and then open the newly created `cheatsheet.html` file.
 
-## Style and theme
-Styling and theme are done with css. We are planning to implement style and theme customization in the near future.
+### Real time preview
+Using [nodemon](https://github.com/remy/nodemon) you can restart the cli on each modification of your sheet.
+Here is an example using the cheaty cli `nodemon -e yml --exec "cheaty render" cheatsheet.yml`.
+You can also use nodemon to watch the build script from the previous part of this doc `nodemon -e yml script.js`. 
+
+> We also provide a [VScode live preview](https://marketplace.visualstudio.com/items?itemName=cheaty-sheet.pcheaty) extension for cheaty !
+
 
 ## YML syntax
 Cheat sheet are divided into the following structure : `block > section`.
