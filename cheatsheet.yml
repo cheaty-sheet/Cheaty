@@ -1,0 +1,115 @@
+title: Cheaty
+description: Cheat sheet with style
+options:
+  size: A4
+  author: cheaty sheet
+  logo: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+blocks:
+  - title: Starter
+    sections:
+      - type: markdown
+        content: Here is a template to bootstrap your sheet
+      - type: code
+        language: yml
+        content: |-
+          title: title
+          description: description
+          options:
+            size: A4
+            author: cheaty sheet
+            logo: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          blocks:
+            - title: My first markdown section
+              sections:
+                - type: markdown
+                  content: My first **content**
+            - title: My first text section
+              sections:
+                - type: text
+                  content: My first content
+            - title: My first code section
+              sections:
+                - type: code
+                  language: javascript
+                  content: |-
+                    cheaty.parseFromDisk('./cheatsheet.yml', 'YML')
+                      .then(sheet => {
+                        sheet.render('HTML').then(htmlRender => {
+                          htmlRender.saveToDisk('./cheatsheet.html')
+                        })
+                      });
+  - title: Watermark
+    sections:
+      - type: markdown
+        content: You can add a watermark on document using the `watermark` options.
+      - type: code
+        language: yml
+        content: |-
+          title: My Cheatsheet
+          description: custom description
+          options:
+              watermark: Confidential
+  - title: HighlightJS
+    sections:
+      - type: markdown
+        content: |-
+          Code highlight is done via highlight.js.
+          You can choose a theme on https://highlightjs.org/static/demo/.
+      - type: code
+        language: yml
+        content: |-
+          title: My Cheatsheet
+          description: custom description
+          options:
+              highlight_theme: darkula
+  - title: Provide your own css
+    sections:
+      - type: markdown
+        content: You can **inject** or **replace** your own css.
+      - type: code
+        language: yml
+        content: |-
+          title: My Cheatsheet
+          description: custom description
+          options:
+              additional_style: '.foo {color:black;}'
+      - type: code
+        language: yml
+        content: |-
+          title: My Cheatsheet
+          description: custom description
+          options:
+              additional_style: '.foo {color:black;}'
+      - type: markdown
+        content: You can also link to an external style sheet by using `additional_style_url` or `replace_style_url`.
+  - title: Markdown section
+    sections:
+      - type: markdown
+        content: Used to represent a markdown paragraph. It can be used for description of anything you want.
+      - type: code
+        language: yml
+        content: |-
+          blocks:
+            - title: My first markdown section
+              sections:
+                - type: markdown
+                  content: My first **content**
+  - title: Code section
+    sections:
+      - type: markdown
+        content: Code section are highlighted portion of code. We're using **highlight.js** library for that part.
+      - type: code
+        language: yml
+        content: |-
+          blocks:
+            - title: My first code section
+              sections:
+                - type: code
+                  language: javascript
+                  content: |-
+                    cheaty.parseFromDisk('./cheatsheet.yml', 'YML')
+                      .then(sheet => {
+                        sheet.render('HTML').then(htmlRender => {
+                          htmlRender.saveToDisk('./cheatsheet.html')
+                        })
+                      });
