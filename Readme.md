@@ -153,6 +153,18 @@ options:
     watermark: Confidential
 ```
 
+#### Font Size
+You can change font size of blocks using the `font_size` options. Font size are in pt. Default to 6pt.
+
+> font_size use css style. It will be overwritten by the use of `replace_style` and `replace_style_url`
+
+```yaml
+title: My Cheatsheet
+description: custom description
+options:
+    font_size: 11
+```
+
 #### Highlight.js theme
 Code highlight is done via [highlight.js](https://highlightjs.org/).
 You can choose a theme on the [demo](https://highlightjs.org/static/demo/) page.
