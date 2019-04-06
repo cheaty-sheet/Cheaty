@@ -205,8 +205,7 @@ describe("Renderer", () => {
             const html = await render.toString();
 
             expect(html)
-                .string('<div class="sections">', 'div.sections is not rendered')
-                .string(`.sections { font-size: ${size}pt; }`, 'font-size is not rendered')
+                .string(`.item { font-size: ${size}pt; }`, 'font-size is not rendered')
         });
     })
 });
