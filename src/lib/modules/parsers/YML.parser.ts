@@ -33,7 +33,7 @@ export default class YMLParser implements Parser {
                 replaceStyle: optionblock.replace_style,
                 replaceStyleUrl: optionblock.replace_style_url,
                 author: optionblock.author,
-                fontSize: optionblock.fontSize
+                fontSize: optionblock.font_size
             })
         } else options = new Options();
         debug('parsed options');
