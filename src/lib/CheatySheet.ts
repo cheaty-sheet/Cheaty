@@ -2,15 +2,16 @@ import Block from "./modules/blocks/Block";
 import {PaperSizeError} from "./Errors";
 
 interface OptionBlock {
-    size: string;
-    highlightTheme: string;
-    logo: string;
-    watermark: string;
-    additionalStyle: string;
-    additionalStyleUrl: string;
-    replaceStyle: string;
-    replaceStyleUrl: string;
-    author: string;
+    size?: string;
+    highlightTheme?: string;
+    logo?: string;
+    watermark?: string;
+    additionalStyle?: string;
+    additionalStyleUrl?: string;
+    replaceStyle?: string;
+    replaceStyleUrl?: string;
+    author?: string;
+    fontSize?: number;
 }
 
 export class Options {
@@ -23,6 +24,7 @@ export class Options {
     public replaceStyle?: string;
     public replaceStyleUrl?: string;
     public author?: string;
+    public fontSize?: number;
 
     constructor(options?: OptionBlock) {
         if (options) {
@@ -34,6 +36,7 @@ export class Options {
             if (options.additionalStyleUrl) this.additionalStyleUrl = options.additionalStyleUrl;
             if (options.replaceStyle) this.replaceStyle = options.replaceStyle;
             if (options.replaceStyleUrl) this.replaceStyleUrl = options.replaceStyleUrl;
+            if (options.fontSize) this.fontSize = options.fontSize;
             if (options.author) this.author = options.author;
         }
         this.validate()

@@ -50,6 +50,7 @@ export default class HTMLRenderer implements Renderer {
             return {style: cheatySheet.options.replaceStyle}
         } else {
             const style: { style?: string, styleUrl?: string } = {style: defaultStyle};
+            if (cheatySheet.options.fontSize) style.style += `\n.sections { font-size: ${cheatySheet.options.fontSize}pt; }`;
             if (cheatySheet.options.additionalStyle) style.style += '\n' + cheatySheet.options.additionalStyle;
             if (cheatySheet.options.additionalStyleUrl) style.styleUrl = cheatySheet.options.additionalStyleUrl;
             return style;

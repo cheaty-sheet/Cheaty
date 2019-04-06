@@ -196,5 +196,17 @@ describe("Renderer", () => {
             expect(html)
                 .not.contain('<div class="author">')
         });
+    });
+    describe("font-size", () => {
+        it('should set blocks font-size in style', async function () {
+            const size = 16;
+            cheaty.options.fontSize = size;
+            const render = await new HTMLRenderer().render(cheaty);
+            const html = await render.toString();
+
+            expect(html)
+                .string('<div class="sections">', 'div.sections is not rendered')
+                .string(`.sections { font-size: ${size}pt; }`, 'font-size is not rendered')
+        });
     })
 });
