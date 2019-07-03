@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2015",
+    "incremental": true,
     "module": "commonjs",
     "declaration": true,
     "sourceMap": true,
