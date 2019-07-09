@@ -1,4 +1,3 @@
-import {expect} from "chai";
 import Block from "../src/lib/modules/blocks/Block";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
 import YMLParser from "../src/lib/modules/parsers/YML.parser";
@@ -9,17 +8,21 @@ describe('Parser', () => {
             const path = "test/resources/nginx.cheatsheet.yml";
             const sheet = await new YMLParser().parseFromDisk(path);
 
-            expect(sheet.blocks.length).equals(10);
-            expect(sheet.title).equals("NGINX");
-            expect(sheet.description).equals("test");
+            expect(sheet.blocks.length).toBe(10);
+            expect(sheet.title).toBe("NGINX");
+            expect(sheet.description).toBe("test");
 
             sheet.blocks.forEach((block: Block) => {
-                expect(block).haveOwnProperty("title").not.empty;
-                expect(block).haveOwnProperty("sections").not.empty;
+                expect(block).toHaveProperty(
+                    "title");
+                expect(block).toHaveProperty(
+                    "sections");
                 block.sections.forEach((section: any) => {
-                    expect(section).instanceOf(CodeSection);
-                    expect(section).haveOwnProperty("language").not.empty;
-                    expect(section).haveOwnProperty("content").not.empty;
+                    expect(section).toBeInstanceOf(CodeSection);
+                    expect(section).toHaveProperty(
+                        "language");
+                    expect(section).toHaveProperty(
+                        "content");
                 })
             })
         });

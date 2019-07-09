@@ -13,7 +13,7 @@
     "inlineSources": true,
     "types": [
       "node",
-      "mocha"
+      "jest"
     ]
   }
 }

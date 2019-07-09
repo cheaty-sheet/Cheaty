@@ -16,7 +16,7 @@
     "resources": "cp -R resources/ dist/resources/ && cp -R test/resources/ dist/test/resources/",
     "docs": "typedoc --options ./typedoc.json ./src/lib",
     "lint": "eslint src/ --ext .js,.ts",
-    "test": "npm run build && mocha dist/test",
+    "test": "npx jest",
     "clean": "rm -rf dist"
   },
   "bin": "./dist/src/cli.js",
@@ -28,24 +28,21 @@
     "debug": "^4.1.1",
     "handlebars": "^4.1.2",
     "js-yaml": "^3.13.1",
-    "marked": "^0.6.3",
+    "marked": "^0.7.0",
     "mkdirp": "^0.5.1",
-    "yargs": "^13.2.1"
+    "yargs": "^13.2.4"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.7",
+    "@types/jest": "^24.0.15",
     "@types/marked": "^0.6.1",
-    "@types/mocha": "^5.2.6",
     "@types/node": "^10.12.21",
     "@types/yargs": "^12.0.9",
     "@typescript-eslint/eslint-plugin": "^1.2.0",
     "@typescript-eslint/parser": "^1.2.0",
-    "chai": "^4.2.0",
     "eslint": "^5.13.0",
-    "mocha": "^6.1.4",
-    "source-map-support": "^0.5.10",
-    "ts-node": "^8.0.2",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
     "typedoc": "^0.14.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   }
 }

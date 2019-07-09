@@ -1,11 +1,9 @@
-import {expect} from "chai"
 import Block from "../src/lib/modules/blocks/Block";
 import CheatySheet from "../src/lib/CheatySheet";
 import TextSection from "../src/lib/modules/blocks/TextSection";
 import CodeSection from "../src/lib/modules/blocks/CodeSection";
 import MarkdownSection from "../src/lib/modules/blocks/MarkdownSection";
 import HTMLRenderer from "../src/lib/modules/renderers/HTMLRenderer/HTML.renderer";
-import {fail} from "assert";
 
 let cheaty: CheatySheet;
 
@@ -53,17 +51,16 @@ describe("Renderer", () => {
             const html = await render.toString();
             // uncomment for debug saving file
             // fs.writeFileSync("/tmp/cheat.html", html);
-            expect(html)
-                .contain("Title")
-                .contain('github.min.css')
-                .contain("Desc")
-                .contain("#standard HTTP protocol")
-                .contain("Foo")
-                .contain("Bar")
-                .contain("Some text to render in the block.")
-                .contain('<table>')
-                .contain('<strong>')
-                .contain('A4')
+            expect(html).toContain("Title");
+            expect(html).toContain('github.min.css');
+            expect(html).toContain("Desc");
+            expect(html).toContain("#standard HTTP protocol");
+            expect(html).toContain("Foo");
+            expect(html).toContain("Bar");
+            expect(html).toContain("Some text to render in the block.");
+            expect(html).toContain('<table>');
+            expect(html).toContain('<strong>');
+            expect(html).toContain('A4');
         })
     });
     describe("theme", () => {
@@ -72,8 +69,7 @@ describe("Renderer", () => {
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .contain('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/darkula.min.css')
+            expect(html).toContain('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/darkula.min.css')
         })
     });
     describe("style", () => {
@@ -82,9 +78,8 @@ describe("Renderer", () => {
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .contain('.foo {color:black;}')
-                .contain('.content')
+            expect(html).toContain('.foo {color:black;}');
+            expect(html).toContain('.content')
         });
         it('should replace style', async function () {
             const sheet = new CheatySheet();
@@ -92,29 +87,24 @@ describe("Renderer", () => {
             const render = await new HTMLRenderer().render(sheet);
             const html = await render.toString();
 
-            expect(html)
-                .contain('.foo {color:black;}')
-                .not.contain('.content')
+            expect(html).toContain('.foo {color:black;}');
+            expect(html).not.toContain('.content')
         });
         it('should add style url', async function () {
             cheaty.options.additionalStyleUrl = './style.css';
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .contain('<link rel="stylesheet"' +
-                    ' href="./style.css">')
-                .contain('.content') // original style
+            expect(html).toContain('<link rel="stylesheet"' + ' href="./style.css">');
+            expect(html).toContain('.content') // original style
         });
         it('should replace style url', async function () {
             cheaty.options.replaceStyleUrl = './style.css';
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .contain('<link rel="stylesheet"' +
-                    ' href="./style.css">')
-                .not.contain('.content') // original style
+            expect(html).toContain('<link rel="stylesheet"' + ' href="./style.css">');
+            expect(html).not.toContain('.content') // original style
         });
     });
     describe("size", () => {
@@ -123,7 +113,7 @@ describe("Renderer", () => {
             const html = await render.toString();
 
             expect(html)
-                .contain('<body class="A4">')
+                .toContain('<body class="A4">')
         });
         it('should have size custom "A5 landscape"', async function () {
             cheaty.options.size = 'A5 landscape';
@@ -131,7 +121,7 @@ describe("Renderer", () => {
             const html = await render.toString();
 
             expect(html)
-                .contain('<body class="A5 landscape">')
+                .toContain('<body class="A5 landscape">')
         });
     });
     describe("watermark", () => {
@@ -140,16 +130,15 @@ describe("Renderer", () => {
             const html = await render.toString();
 
             expect(html)
-                .not.contain('<div class="watermark">')
+                .not.toContain('<div class="watermark">')
         });
         it('should render watermark', async function () {
             cheaty.options.watermark = 'MY_WATERMARK';
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .contain('<div class="watermark">')
-                .contain('MY_WATERMARK')
+            expect(html).toContain('<div class="watermark">');
+            expect(html).toContain('MY_WATERMARK');
         });
     });
     describe("logo", () => {
@@ -157,17 +146,15 @@ describe("Renderer", () => {
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .not.contain('<div class="logo">')
+            expect(html).not.toContain('<div class="logo">');
         });
         it('should render logo', async function () {
             cheaty.options.logo = 'MY_LOGO';
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .contain('<div class="logo">')
-                .contain('MY_LOGO')
+            expect(html).toContain('<div class="logo">');
+            expect(html).toContain('MY_LOGO');
         });
     });
     describe("footer", () => {
@@ -176,25 +163,22 @@ describe("Renderer", () => {
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .contain('<div class="author">')
-                .contain('foo <strong>bar</strong>')
+            expect(html).toContain('<div class="author">');
+            expect(html).toContain('foo <strong>bar</strong>');
         });
         it('should render author with link', async function () {
             cheaty.options.author = 'foo [bar](http://github.com)';
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .contain('<div class="author">')
-                .contain('<a href="http://github.com">bar</a>')
+            expect(html).toContain('<div class="author">');
+            expect(html).toContain('<a href="http://github.com">bar</a>');
         });
         it('should NOT render author', async function () {
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .not.contain('<div class="author">')
+            expect(html).not.toContain('<div class="author">');
         });
     });
     describe("font-size", () => {
@@ -204,8 +188,7 @@ describe("Renderer", () => {
             const render = await new HTMLRenderer().render(cheaty);
             const html = await render.toString();
 
-            expect(html)
-                .string(`.item { font-size: ${size}pt; }`, 'font-size is not rendered')
+            expect(html).toContain(`.item { font-size: ${size}pt; }`)
         });
     })
 });
