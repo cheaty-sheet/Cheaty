@@ -12,9 +12,8 @@
     "npm": "> 5.0.0"
   },
   "scripts": {
-    "build": "tsc && npm run resources",
-    "resources": "cp -R resources/ dist/resources/ && cp -R test/resources/ dist/test/resources/",
-    "docs": "typedoc --options ./typedoc.json ./src/lib",
+    "build": "tsc",
+    "watch": "tsc -w",
     "lint": "eslint src/ --ext .js,.ts",
     "test": "npx jest",
     "clean": "rm -rf dist"
