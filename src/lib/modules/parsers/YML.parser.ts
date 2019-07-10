@@ -42,7 +42,8 @@ export default class YMLParser implements Parser {
             if (block.title == undefined || block.sections == undefined) {
                 throw new InvalidBlockError(block)
             } else {
-                return new Block(block.title, block.sections.map((section: any) => {
+                const style = block.style || {};
+                return new Block(block.title, style, block.sections.map((section: any) => {
                     switch (section.type) {
                         case 'text':
                             return new TextSection(section.content);

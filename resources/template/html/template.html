@@ -45,7 +45,7 @@
     <div class="content">
         {{!--Iterate on block--}}
         {{#each blocks}}
-            <div class="item">
+            <div class="item" {{#if this.style}}style="{{this.style}}"{{/if}}>
                 <h2>{{this.title}}</h2>
                 <div class="sections">
                     {{!--Iterate on section--}}

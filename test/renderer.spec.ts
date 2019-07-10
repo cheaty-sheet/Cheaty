@@ -11,7 +11,7 @@ beforeEach(async () => {
     cheaty = new CheatySheet("Title", "Desc");
 
     cheaty.blocks.push(
-        new Block("Foo",
+        new Block("Foo", {},
             [
                 new TextSection("Some text to render in the block."),
                 new MarkdownSection(`First Header | Second Header
@@ -24,7 +24,7 @@ server {
   listen 443 ssl;
 }`)
             ]),
-        new Block("Bar",
+        new Block("Bar", {},
             [
                 new TextSection("Hello"),
                 new CodeSection("kotlin", `class Customer                                  // 1
@@ -190,5 +190,15 @@ describe("Renderer", () => {
 
             expect(html).toContain(`.item { font-size: ${size}pt; }`)
         });
-    })
+    });
+    describe("blocks", () => {
+        it("should render local style property of blocks", async () => {
+            const size = "12pt";
+            cheaty.blocks[0].style["font-size"] = size;
+            const render = await new HTMLRenderer().render(cheaty);
+            const html = await render.toString();
+
+            expect(html).toContain(`style="font-size:${size};"`)
+        })
+    });
 });
