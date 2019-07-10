@@ -1,6 +1,3 @@
-# Cheaty
-Easily create your cheat-sheet !
-
 ## Installation
 `npm i @cheaty-sheet/cheaty` or `npm i -g @cheaty-sheet/cheaty` to use the cli in your whole system.
 
@@ -85,7 +82,7 @@ Minimal required properties are :
 
 > Title and description can be markdown
 
-### Options
+## Global options
 It is possible to override some parameters in cheaty by using the **options** block.
 
 ```text
@@ -99,7 +96,7 @@ blocks:
       - type: text
         content: My first content
 ```
-#### Paper size
+### Paper size
 You can customize the sheet paper size using the `size` options.
 It accept the following value : 
 * A3
@@ -119,7 +116,7 @@ options:
     size: A5 landscape
 ```
 
-#### Author
+### Author
 You can add a author mention using the `author` options. This option fully support markdown.
 
 ```yaml
@@ -133,7 +130,7 @@ Note that due to YML limitation, a single markdown link is not a valid string.
 You'll have to write it like `author: "[cheaty sheet](http://my-site.com)"`
 
 
-#### Logo
+### Logo
 You can add a logo on document using the `logo` options.
 
 ```yaml
@@ -143,7 +140,7 @@ options:
     logo: http://your-site.com/logo.png
 ```
 
-#### Watermark
+### Watermark
 You can add a watermark on document using the `watermark` options.
 
 ```yaml
@@ -153,8 +150,8 @@ options:
     watermark: Confidential
 ```
 
-#### Font Size
-You can change font size of blocks using the `font_size` options. Font size are in pt. Default to 6pt.
+### Font Size
+You can change the default font size of blocks using the `font_size` options. Font size are in pt. Default to 6pt.
 
 > font_size use css style. It will be overwritten by the use of `replace_style` and `replace_style_url`
 
@@ -165,7 +162,7 @@ options:
     font_size: 11
 ```
 
-#### Highlight.js theme
+### Highlight.js theme
 Code highlight is done via [highlight.js](https://highlightjs.org/).
 You can choose a theme on the [demo](https://highlightjs.org/static/demo/) page.
 
@@ -178,7 +175,7 @@ options:
     highlight_theme: darkula
 ```
 
-#### Provide your own css
+### Provide your own css
 You can **inject** or **replace** your own css.
 
 To add css :
@@ -202,23 +199,23 @@ style relative option.
 
 You can also link to an external style sheet by using `additional_style_url` or `replace_style_url`.
 
-### Blocks and Sections
+You can also inject style in blocks. You might prefer this for block specific settings, like font-size.
+
+## Blocks and Sections
 A block represent a reserved space on the sheet paper. It must have a **title** and at least **one section**.
 A block can contain as many sections are needed.
 
 Section are the real content of you sheet. At least, each section will have a **type** and **content** property.
 As you might have now guessed, they are multiple block type.
 
-
-
-#### Text section
+### Text section
 Used to represent a text paragraph. It can be used for description of anything you want
 ```yaml
 type: text
 content: My first content
 ```
 
-#### Markdown section
+### Markdown section
 Used to represent a text paragraph. It can be used for description of anything you want.
 ```yaml
 type: markdown
@@ -227,7 +224,7 @@ content: My first **link** to [google](http://www.google.com)
 
 > We support **github flavored markdown**. Check the [documentation](https://guides.github.com/features/mastering-markdown/) for all features.
 
-#### Code section
+### Code section
 Code section are highlighted portion of code. We're using [highlight.js](https://highlightjs.org/) library for that part.
 ```yaml
 type: code
@@ -247,6 +244,22 @@ auto detection here.
 > We are using multiline yaml string to insert code in the yaml file.
 
 Please refer to the **Options** section of this documentation for theme customization.
+
+## Blocks options
+
+### Style
+
+You can override a block theme using this object. It will be serialized and injected in the `style` property.
+
+```yaml
+blocks:
+  - title: My first block
+    style:
+      font-size: 12pt
+    sections:
+      - type: text
+        content: This will have a font-size of 12pt
+```
 
 ## Full example
 You can go retrieve the cheat sheet of cheaty [here](cheatsheet.yml), use it as example.

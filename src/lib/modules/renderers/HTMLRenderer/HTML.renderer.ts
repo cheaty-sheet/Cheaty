@@ -76,6 +76,7 @@ export default class HTMLRenderer implements Renderer {
             highlightTheme: cheatySheet.options.highlightTheme,
             blocks: cheatySheet.blocks.map(block => ({
                 title: block.title,
+                style: Object.entries(block.style).reduce((style, [key, val]) => style + `${key}:${val};`, ""),
                 sections: block.sections.map(section => {
                     if (section instanceof CodeSection) {
                         return {
