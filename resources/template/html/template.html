@@ -18,6 +18,16 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/{{highlightTheme}}.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+            const el = document.getElementById('main');
+            Sortable.create(el, {
+                animation: 250,
+                easing: "cubic-bezier(0.445, 0.05, 0.55, 0.95)"
+            })
+        });
+    </script>
     <script>hljs.initHighlightingOnLoad();</script>
     {{!--custom css--}}
     {{#if style.style}}
@@ -42,7 +52,7 @@
             </div>
         {{/if}}
     </div>
-    <div class="content">
+    <div id="main" class="content">
         {{!--Iterate on block--}}
         {{#each blocks}}
             <div class="item" {{#if this.style}}style="{{this.style}}"{{/if}}>
