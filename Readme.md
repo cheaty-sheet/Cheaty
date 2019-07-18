@@ -7,7 +7,9 @@ Cheaty is made to simple as simple as possible. You can use it as script or as C
 the main goal of cheaty is to convert a cheat sheet definition into a real one.
 For that, we use a system of parser and renderer.
 
-Rendered cheat sheet are **print ready, A4 formatted, html files**.
+Rendered cheat sheet are **print ready, A4 formatted, interactive html files**.
+
+Every block on the html cheat sheet is **moveable** by **drag and drop** !
 
 ### Script
 ```javascript
