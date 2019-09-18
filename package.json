@@ -1,9 +1,9 @@
 {
   "name": "@cheaty-sheet/cheaty",
-  "version": "0.10.0",
+  "version": "0.10.2",
   "description": "Cheat Sheet generation made easy",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -18,7 +18,7 @@
     "test": "npx jest",
     "clean": "rm -rf dist"
   },
-  "bin": "./dist/src/cli.js",
+  "bin": "./dist/cli.js",
   "author": "",
   "license": "MIT",
   "dependencies": {
