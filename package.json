@@ -1,11 +1,12 @@
 {
   "name": "@cheaty-sheet/cheaty",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Cheat Sheet generation made easy",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "resources"
   ],
   "engines": {
     "node": "> 8.0.0",
